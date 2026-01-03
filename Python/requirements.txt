@@ -21,3 +21,10 @@ fpdf2
 reportlab
 cryptography
 pyodbc
+
+streamlit
+pandas
+rapidfuzz
+phonetics
+sqlalchemy>=2.0.25
+pymysql>=1.1.0

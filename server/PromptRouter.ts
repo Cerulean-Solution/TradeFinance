@@ -9,6 +9,7 @@ import {
   inheritPrompt,
   getInstrumentTypes,
   getLifecycleStages,
+  getPromptDiff
     
 } from "./PromptsService";
 
@@ -108,6 +109,15 @@ router.get("/api/prompt-versions", async (req, res) => {
   } catch (err: any) {
     console.error("GET /api/prompt-versions Error:", err);
     res.status(500).json({ message: err.message || "Server Error" });
+  }
+});
+
+router.get("/api/prompts/:id/diff", async (req, res) => {
+  try {
+    const data = await getPromptDiff(Number(req.params.id));
+    res.json(data);
+  } catch (e: any) {
+    res.status(500).json({ message: e.message });
   }
 });
 

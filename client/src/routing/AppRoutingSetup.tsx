@@ -18,6 +18,11 @@ import {  ErrorsRouting } from '@/errors';
 import PromptManagement from '@/pages/FrameworkFiles/PromptManagement';
 import CreatePrompt from '@/pages/FrameworkFiles/promptscreen/CreatePrompt';  
 import Billing from '@/pages/Billing/Billing';
+import AccountSettingsSidebarPage from '@/pages/Sanction/AccountSettingsSidebarPage';
+import FourtySixA from '@/pages/46A/FourtySixA';
+import DocumentDetails from '@/pages/46A/Documentdetails';
+import AccountSettingsSidebarPages from '@/pages/Trade_Based_ML/AccountSettingsSidebarPage';
+
 const AppRoutingSetup = (): ReactElement => {
   return (
      <RoleProvider>
@@ -42,6 +47,21 @@ const AppRoutingSetup = (): ReactElement => {
             <Route path='/Form/LcForm' element={<LcForm/>} ></Route>
             <Route path='/Billing' element={<Billing/>} ></Route>
             <Route path='/MTconverter' element={<MTConverter/>} ></Route>
+            {/* ------------------ */}
+            {/* sanction */}
+            {/* ------------------ */}
+            <Route path="/sanction" element={<AccountSettingsSidebarPage />} ></Route>
+            {/* ------------------------ */}
+            {/* 46A */}
+            {/* ------------------------ */}
+            <Route path="/form/46A" element={<FourtySixA />} ></Route>
+            <Route path="/form/documents/:id" element={<DocumentDetails />} />
+            {/* ------------------ */}
+            {/* TBML */}           
+            {/* ------------------ */}
+
+            <Route path="/TBML" element={<AccountSettingsSidebarPages/>}></Route>
+
           </Route>
         </Route>
        <Route path="error/*" element={<ErrorsRouting />} />

@@ -1,0 +1,39 @@
+========================================
+SETUP INSTRUCTIONS
+========================================
+
+1. Copy your .env file to this directory:
+   - You already have a .env file with the correct configuration
+   - Simply copy it to this folder
+
+2. Install dependencies:
+   pip install -r requirements.txt
+
+3. Run the application:
+   streamlit run app.py
+
+========================================
+WHAT'S FIXED:
+========================================
+
+✅ Azure OpenAI Configuration:
+   - Now uses direct REST API endpoint
+   - Works with your endpoint format:
+     https://rishiaieng.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2025-01-01-preview
+   - Uses your API key correctly
+
+✅ SQL Server Connection:
+   - Server: desktop-eneq19v
+   - Database: tf_genie
+   - User: shahul
+   - Password: Apple123!@#
+
+✅ UI Improvements:
+   - AI Import textbox is now STATIC (always visible, not in expander)
+   - Grid sorted in DESCENDING order (newest documents first)
+   - Compact spacing maintained
+
+✅ PostgreSQL Support:
+   - Can be added if needed (let me know)
+
+========================================

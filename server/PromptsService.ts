@@ -272,6 +272,20 @@ export async function getPromptVersions(query: any) {
     throw new Error("Failed to fetch prompt version history");
   }
 }
+export async function getPromptDiff(id: number) {
+  const pool = await getPool2();
+  const result = await pool
+    .request()
+    .input("prompt_id", sql.Int, id)
+    .execute("sp_GetPromptDiff");
+
+  const recordsets = Array.isArray(result.recordsets) ? result.recordsets : [];
+
+  return {
+    current: recordsets[0]?.[0] || null,
+    previous: recordsets[1]?.[0] || null
+  };
+}
 
 
 

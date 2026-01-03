@@ -10,6 +10,9 @@ from routes.instrument import router as instrument
 import traceback
 from fastapi.responses import JSONResponse
 from fastapi import Request, APIRouter,HTTPException
+from routes.sanction import router as sanction_router
+from routes.fourtysix_A import router as FourtySixA_router
+from routes.TBML import router as TBML
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -54,6 +57,9 @@ app.include_router(tool_subdocuments_router)
 app.include_router(mt_converter_router)
 app.include_router(Amenment)
 app.include_router(instrument)
+app.include_router(sanction_router)
+app.include_router(FourtySixA_router)  # Importing the router from fourtysix_A.py
+app.include_router(TBML)  # Including the TBML router
 @app.get("/")
 def root():
     return {"message": "TF_genie FastAPI Running Successfully"}

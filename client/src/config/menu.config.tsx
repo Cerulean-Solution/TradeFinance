@@ -193,6 +193,46 @@ export const MENU_SIDEBAR: TMenuConfig = [
       },
     ]
   },
+    {
+    id: '46A',
+    title: '46A Management',
+    asset_key: '46A_Management',
+    icon: 'calendar-tick',
+    children: [
+      {
+        title: '46A',
+        path: '/form/46A',
+        permission: 'AccessLogs'
+
+  }
+],
+},
+   {
+    id: 'sanction',
+    title: 'Sanction Management', 
+    asset_key: 'Sanction_Management',
+    icon: 'shield-cross',
+    children: [
+      {
+        title: 'Sanction',
+        path: '/sanction',
+        permission: 'AccessLogs'
+      },
+    ]
+  },
+   {
+    id: 'TBML',
+    title: 'TBML Management', 
+    asset_key: 'TBML_Management',
+    icon: 'shield-cross',
+    children: [
+      {
+        title: 'Trade Based Money Laundering',
+        path: '/TBML',
+        permission: 'AccessLogs'
+      },
+    ]
+  }
    
 ];
 

@@ -7,3 +7,6 @@ Python/.env
 .env
 */.env
 Python/.env
+Python/sanction_1/.env
+Python/TBML_matching/.env
+Python/FourtySix_A/.env
