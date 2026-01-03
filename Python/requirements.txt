@@ -1,0 +1,23 @@
+fastapi
+uvicorn[standard]
+python-dotenv
+langchain
+langchain-openai
+langchain-postgres
+langchain-community
+psycopg[binary,pool]
+pypdf
+tiktoken
+tenacity
+# optional UI
+streamlit
+pymssql
+psycopg2-binary
+plotly
+langgraph
+langsmith
+fpdf
+fpdf2
+reportlab
+cryptography
+pyodbc

@@ -1,0 +1,579 @@
+
+
+# cross_document_analyzer.py
+"""
+Cross-Document Analyzer (Mode 2)
+==================================
+Compare LC against presented documents using your existing
+file-based pipeline (cross_new_csv.py) + Azure OpenAI for
+document splitting & verification.
+This is a backend-only version callable from FastAPI.
+"""
+
+from __future__ import annotations
+
+from typing import Optional, List, Dict, Any
+import json
+import re
+import os
+import sys
+import logging
+from pathlib import Path
+from datetime import datetime
+from Prompts.sysprompt import SYSTEM_PROMPT
+from dotenv import load_dotenv
+from openai import AzureOpenAI
+from analyzers.base_analyzer import BaseAnalyzer
+import re
+# Load environment variables once
+load_dotenv()
+
+# Logger setup
+logger = logging.getLogger("cross_document_analyzer")
+if not logger.handlers:
+    logger.setLevel(logging.DEBUG)
+    console_handler = logging.StreamHandler()
+    console_handler.setLevel(logging.INFO)
+    formatter = logging.Formatter(
+        "%(asctime)s - %(levelname)s - %(funcName)s:%(lineno)d - %(message)s"
+    )
+    console_handler.setFormatter(formatter)
+    logger.addHandler(console_handler)
+
+
+# def extract_table_rows_from_markdown(md_text: str):
+#     """
+#     Extract rows from the first Markdown discrepancy table
+#     in Cross-Document Analyzer output.
+#     """
+#     lines = md_text.splitlines()
+
+#     table_started = False
+#     rows = []
+
+#     for line in lines:
+#         if line.strip().startswith("| Base Document"):
+#             table_started = True
+#             continue
+
+#         if table_started:
+#             if not line.strip().startswith("|"):
+#                 break  # table ended
+
+#             parts = [c.strip() for c in line.strip().split("|")[1:-1]]
+
+#             if len(parts) == 6:
+#                 rows.append({
+#                     "base_document": parts[0],
+#                     "target_document": parts[1],
+#                     "fields": parts[2],
+#                     "base_value": parts[3],
+#                     "target_value": parts[4],
+#                     "issue": parts[5],
+#                 })
+
+#     return rows
+def extract_table_rows_from_markdown(md_text):
+    """
+    Extract ONLY the table rows (excluding header + separator).
+    Returns list of dict rows for Mode-2 discrepancy table.
+    """
+    rows = []
+    lines = md_text.splitlines()
+    
+    # find lines starting with |
+    table_lines = [line for line in lines if line.strip().startswith("|")]
+
+    if len(table_lines) < 3:
+        return []
+
+    # Skip header (0) + separator (1)
+    data_lines = table_lines[2:]
+
+    for line in data_lines:
+        # ignore accidental separator lines
+        if line.strip().startswith("|---"):
+            continue
+        
+        parts = [p.strip() for p in line.strip().strip("|").split("|")]
+        if len(parts) < 6:
+            continue
+
+        rows.append({
+            "base_document": parts[0],
+            "target_document": parts[1],
+            "fields": parts[2],
+            "base_value": parts[3],
+            "target_value": parts[4],
+            "issue": parts[5],
+        })
+    
+    return rows
+
+def extract_detailed_discrepancies(md_text):
+    """
+    Extract detailed discrepancy blocks from the markdown.
+    Returns a dict: serial_id -> detail_fields
+    """
+
+    blocks = md_text.split("#### Serial ID:")
+    result = {}
+
+    for block in blocks[1:]:
+        lines = block.strip().splitlines()
+        serial = lines[0].strip()
+
+        detail = {
+            "discrepancy_id":"",
+            "discrepancy_type": "",
+            "discrepancy_title": "",
+            "discrepancy_short_details": "",
+            "discrepancy_long_details": "",
+            "discrepancy_base_vs_target": "",
+            "severity_level": "",
+            "golden_truth_value": "",
+            "secondary_document_value": "",
+            "impact": ""
+        }
+
+        text = "\n".join(lines)
+
+        def extract(label):
+            m = re.search(rf"{label}:\s*(.*)", text)
+            return m.group(1).strip() if m else ""
+        detail["discrepancy_id"] =extract("Discrepancy ID")
+        detail["discrepancy_type"] = extract("Type")
+        detail["discrepancy_title"] = extract("Discrepancy Title")
+        detail["discrepancy_short_details"] = extract("Discrepancy Short Detail")
+        detail["discrepancy_long_details"] = extract("Discrepancy Long Detail")
+        detail["severity_level"] = extract("Severity Level")
+        detail["golden_truth_value"] = extract("Golden Truth Value")
+        detail["secondary_document_value"] = extract("Secondary Document Value")
+        detail["impact"] = extract("Impact")
+
+        # Base-vs-target block is multiline
+        m = re.search(r"Discrepancy Base Value vs Target Value:(.*?)(Severity Level:)", text, re.S)
+        if m:
+            detail["discrepancy_base_vs_target"] = m.group(1).strip()
+
+        result[int(serial)] = detail
+
+    return result
+
+def merge_table_and_details(table_rows, detailed_rows):
+    result = []
+
+    for i, row in enumerate(table_rows, start=1):
+        merged = row.copy()
+
+        if i in detailed_rows:
+            merged.update(detailed_rows[i])
+
+        result.append(merged)
+
+    return result
+
+import re
+
+def extract_multihop_discrepancy_rows(md_text: str):
+    rows = []
+    lines = md_text.splitlines()
+
+    table_lines = [l for l in lines if l.strip().startswith("|")]
+    if len(table_lines) < 3:
+        return []
+
+    data_lines = table_lines[2:]  # skip header + separator
+
+    for line in data_lines:
+        if line.strip().startswith("|---"):
+            continue
+
+        parts = [p.strip() for p in line.strip("|").split("|")]
+        if len(parts) < 6:
+            continue
+
+        rows.append({
+            "discrepancy_id": parts[0].replace("**", ""),
+            "discrepancy_type": parts[1].replace("**", ""),
+            "lc_requirement": parts[2],
+            "document_observation": parts[3],
+            "conclusion_impact": parts[4],
+            "ucp_isbp_reference": parts[5],
+        })
+
+    return rows
+
+
+
+# reuse helper functions
+def first_n_words(text: str, n: int = 3) -> str:
+    text = (text or "").strip()
+    words = re.findall(r"\w+", text, flags=re.UNICODE)
+    return " ".join(words[:n]) if words else "document"
+
+
+def sanitize_filename(name: str, max_len: int = 80) -> str:
+    name = (name or "").strip()
+    name = (
+        name.replace("—", "-")
+        .replace("–", "-")
+        .replace("/", "-")
+        .replace("\\", "-")
+    )
+    name = re.sub(r'[<>:"/\\|?*\x00-\x1F]', "", name)
+    name = re.sub(r"\s+", " ", name).strip()
+    return name[:max_len] if len(name) > max_len else name
+
+
+def validate_azure_config() -> tuple[bool, str]:
+    logger.info("Validating Azure OpenAI configuration")
+
+    required_vars = [
+        "AZURE_OPENAI_ENDPOINT",
+        "AZURE_OPENAI_API_KEY",
+        "AZURE_OPENAI_API_VERSION",
+        "AZURE_OPENAI_CHAT_DEPLOYMENT",
+    ]
+
+    missing = []
+    for var in required_vars:
+        value = os.getenv(var)
+        if not value:
+            missing.append(var)
+            logger.error("Environment variable %s is MISSING", var)
+        else:
+            logger.info("Environment variable %s is SET", var)
+
+    if missing:
+        return False, f"Missing required environment variables: {', '.join(missing)}"
+
+    return True, "Configuration valid"
+
+
+def create_directories() -> None:
+    for d in ["input", "output"]:
+        Path(d).mkdir(exist_ok=True)
+
+
+def clean_input_directory() -> None:
+    input_dir = Path("input")
+    if input_dir.exists():
+        for file_path in input_dir.glob("*.txt"):
+            try:
+                file_path.unlink()
+            except Exception as e:
+                logger.warning("Error deleting %s: %s", file_path.name, e)
+
+
+def save_primary_document(content: str, document_code: str) -> Optional[Path]:
+    if not content or not content.strip():
+        return None
+    filename = f"{document_code.lower()}.txt"
+    filepath = Path("input") / filename
+    try:
+        with open(filepath, "w", encoding="utf-8") as f:
+            f.write(f"### Letter of Credit (LC) - GOLDEN TRUTH DOCUMENT: {filename}\n\n")
+            f.write(content.strip())
+        return filepath
+    except Exception as e:
+        logger.error("Error saving primary document: %s", e, exc_info=True)
+        return None
+
+
+# Secondary doc splitting & verification reuse code from before
+def _build_document_list_for_prompt() -> str:
+    DOCS = [
+        "Import Letter of Credit",
+        "Export Letter of Credit",
+        "Bill of Lading",
+        "Commercial Invoice",
+        "Packing List",
+        "Insurance Certificate",
+        "Quality Certificate",
+        "Certificate of Origin",
+    ]
+    return "\n".join([f"- {d}: {d}" for d in DOCS])
+
+
+def split_secondary_documents(content: str) -> List[Dict[str, Any]]:
+    from Model.cross_new_csv import TradeFinanceComplianceAnalyzer
+    # reuse the analyzer LLM to split — or call a light-weight classifier here
+    analyzer = TradeFinanceComplianceAnalyzer()
+    # fallback: try a simple split by headings if content contains "-----"
+    if not content or not content.strip():
+        return []
+    # call analyzer's internal splitting via an ad-hoc prompt approach using Azure (kept simple)
+    # For reliability, we reuse the analyzer.build_user_prompt after saving a temporary file set instead.
+    # But for now, attempt to do naive split by headings bounded by lines of "-----" or "###"
+    parts = []
+    # split on "-----" or double newlines + "###"
+    if "-----" in content:
+        chunks = [c.strip() for c in content.split("-----") if c.strip()]
+    elif "###" in content:
+        chunks = [c.strip() for c in content.split("###") if c.strip()]
+    else:
+        # single document fallback
+        chunks = [content.strip()]
+
+    for i, c in enumerate(chunks, 1):
+        heading = f"Document {i}"
+        identified_name = "Unknown"
+        # crude heuristics
+        if "invoice" in c.lower():
+            identified_name = "Commercial Invoice"
+        elif "bill of lading" in c.lower() or "b/l" in c.lower():
+            identified_name = "Bill of Lading"
+        elif "insurance" in c.lower():
+            identified_name = "Insurance Certificate"
+        elif "packing list" in c.lower() or "packing" in c.lower():
+            identified_name = "Packing List"
+        elif "quality" in c.lower() or "certificate" in c.lower():
+            identified_name = "Quality Certificate"
+
+        parts.append({"heading": heading, "content": c, "identified_name": identified_name})
+
+    return parts
+
+
+def ai_verify_and_correct_document_names(documents: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    # For stability, simply map common names through heuristics
+    for d in documents:
+        name = (d.get("identified_name") or "").lower()
+        if "invoice" in name:
+            d["verified_name"] = "Commercial Invoice"
+        elif "lading" in name or "b/l" in name:
+            d["verified_name"] = "Bill of Lading"
+        elif "insurance" in name:
+            d["verified_name"] = "Insurance Certificate"
+        elif "packing" in name:
+            d["verified_name"] = "Packing List"
+        elif "quality" in name:
+            d["verified_name"] = "Quality Certificate"
+        elif "lc" in name or "credit" in name:
+            d["verified_name"] = "Letter of Credit"
+        else:
+            d["verified_name"] = d.get("identified_name") or "Unknown"
+    return documents
+
+
+def determine_document_type_for_heading(identified_name: str, filename: str) -> str:
+    identified_lower = (identified_name or "").lower()
+    if any(x in identified_lower for x in ["bill of lading", "b/l", "lading", "ocean"]):
+        return "Bill of Lading (BOL)"
+    elif any(x in identified_lower for x in ["insurance", "ins", "policy", "cargo"]):
+        return "Insurance Certificate (INS)"
+    elif "invoice" in identified_lower:
+        return "Commercial Invoice (INV)"
+    elif any(x in identified_lower for x in ["packing", "packing list", "pack"]):
+        return "Packing List (PL)"
+    elif any(x in identified_lower for x in ["quality", "inspection"]):
+        return "Quality Certificate (QC)"
+    elif "certificate of origin" in identified_lower or "coo" in identified_lower:
+        return "Certificate of Origin (COO)"
+    elif any(x in identified_lower for x in ["letter of credit", "credit", "lc"]):
+        return "Letter of Credit (LC)"
+    else:
+        return f"Trade Document ({identified_name})"
+
+
+def save_secondary_documents(documents: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    saved_files = []
+    for i, doc in enumerate(documents, 1):
+        identified_name = doc.get("verified_name") or doc.get("identified_name", "Unknown")
+        heading = doc.get("heading", f"Document {i}")
+        base_name = first_n_words(heading, 3)
+        safe_base = sanitize_filename(base_name) or sanitize_filename(first_n_words(identified_name, 3)) or f"document_{i:02d}"
+        filename = f"{safe_base}.txt"
+        filepath = Path("input") / filename
+        counter = 2
+        while filepath.exists():
+            filename = f"{safe_base}_{counter}.txt"
+            filepath = Path("input") / filename
+            counter += 1
+        doc_type = determine_document_type_for_heading(identified_name, filename)
+        try:
+            with open(filepath, "w", encoding="utf-8") as f:
+                f.write(f"### {doc_type}: {filename}\n\n")
+                f.write(doc.get("content", ""))
+            saved_files.append({
+                "filename": filename,
+                "heading": heading,
+                "identified_name": identified_name,
+                "document_type": doc_type,
+                "filepath": filepath
+            })
+        except Exception as e:
+            logger.error("Error saving secondary document %d: %s", i, e, exc_info=True)
+    return saved_files
+
+
+# -------------- NEW run_discrepancy_analysis(user_prompt) --------------
+def run_discrepancy_analysis(user_prompt: str):
+    """
+    Run the analyzer in-process so we capture token usage. Returns:
+    (md_file_path_str, csv_file_path_str_or_None, user_prompt, tokens_dict)
+    """
+    from Model.cross_new_csv import TradeFinanceComplianceAnalyzer as TFCA
+
+    analyzer = TFCA()
+
+    # Run LLM analysis (returns text + tokens)
+    analysis_data = analyzer.analyze_compliance(user_prompt)
+    if not analysis_data:
+        return None, None, None, None
+
+    analysis_text = analysis_data["text"]
+    analysis_tokens = analysis_data["tokens"]
+
+    # Identify LC + secondary saved in input folder
+    input_files = list(Path("input").glob("*.txt"))
+    files = [str(f) for f in input_files]
+    lc_file, secondary_files = analyzer.identify_lc_document(files)
+
+    # Save MD + CSV
+    md_file_path = analyzer.save_results(analysis_text, lc_file, secondary_files)
+
+    # Get latest CSV (if any)
+    output_dir = Path("output")
+    csv_files = list(output_dir.glob("compliance_analysis_*.csv"))
+    csv_file = str(max(csv_files, key=os.path.getctime)) if csv_files else None
+
+    return md_file_path, csv_file, user_prompt, analysis_tokens
+
+
+# -------------------------------------------------------------------
+# CrossDocumentAnalyzer class used by FastAPI (Mode 2)
+# -------------------------------------------------------------------
+class CrossDocumentAnalyzer(BaseAnalyzer):
+    def __init__(
+        self,
+        lc_type: str = "Import Letter of Credit",
+        lc_code: str = "ILC",
+        lifecycle_code: str = "ISSUANCE",
+        system_prompt: str = "",
+        system_detail_prompt: str = "",
+    ):
+        super().__init__(lc_type)
+        self.lc_type = lc_type
+        self.lc_code = lc_code
+        self.lifecycle_code = lifecycle_code
+        self.system_prompt = system_prompt
+        self.system_detail_prompt = system_detail_prompt
+        ok, msg = validate_azure_config()
+        if not ok:
+            logger.error("Azure config invalid in CrossDocumentAnalyzer: %s", msg)
+        else:
+            logger.info("Azure config OK for CrossDocumentAnalyzer")
+
+    def analyze(
+        self,
+        lc_details: str,
+        presented_documents: Optional[str] = None,
+        vector_context: Optional[str] = None,
+    ) -> dict:
+        """
+        Mode 2 pipeline (fixed):
+        - Save LC text as primary file
+        - Split secondary docs via AI heuristics
+        - Save secondary files
+        - Build user_prompt and call run_discrepancy_analysis(user_prompt)
+        - Return markdown + tokens
+        """
+        logger.info("Starting CrossDocumentAnalyzer Mode 2 pipeline")
+
+        # Validate inputs
+        self.validate_inputs(lc_details, presented_documents)
+
+        if not presented_documents or not presented_documents.strip():
+            raise ValueError("Presented documents are required for cross-document analysis")
+
+        ok, msg = validate_azure_config()
+        if not ok:
+            raise Exception(f"Azure configuration invalid: {msg}")
+
+        # Prepare filesystem
+        create_directories()
+        clean_input_directory()
+
+        # 1) Save primary LC
+        primary_file = save_primary_document(lc_details, self.lc_code or "LC")
+        if not primary_file:
+            raise Exception("Failed to save primary (LC) document for analysis")
+
+        try:
+            with open(primary_file, "r", encoding="utf-8") as fp:
+                primary_text = fp.read()
+        except Exception:
+            primary_text = "<Unable to load LC primary document>"
+
+        # 2) Split secondary docs
+        secondary_docs = split_secondary_documents(presented_documents)
+        if not secondary_docs:
+            raise Exception("AI-based splitting of secondary documents returned no documents")
+
+        # 3) Verify and save secondary documents
+        verified_docs = ai_verify_and_correct_document_names(secondary_docs)
+        saved_secondary = save_secondary_documents(verified_docs)
+        if not saved_secondary:
+            raise Exception("No secondary documents could be saved")
+
+        # 4) Build user prompt using analyzer helper
+        from Model.cross_new_csv import TradeFinanceComplianceAnalyzer as TFCA
+        analyzer = TFCA()
+        input_files = list(Path("input").glob("*.txt"))
+        files = [str(f) for f in input_files]
+        lc_file, secondary_files = analyzer.identify_lc_document(files)
+        user_prompt = analyzer.build_user_prompt(lc_file, secondary_files)
+
+        # 5) Run analysis in-process to capture tokens
+        md_file, csv_file, used_prompt, tokens = run_discrepancy_analysis(user_prompt)
+
+        # md_file may be a string path (returned from save_results)
+        if not md_file or not Path(str(md_file)).exists():
+            raise Exception("Mode 2 failed: markdown report not generated")
+
+        # Read markdown content
+        try:
+            with open(str(md_file), "r", encoding="utf-8") as f:
+                md_content = f.read()
+        except Exception as e:
+            raise Exception(f"Failed to read analysis markdown report: {e}")
+
+        # Build secondary details for logging
+        secondary_details = ""
+        for s in saved_secondary:
+            secondary_details += f"\n\n----- {s['filename']} ({s['identified_name']}) -----\n"
+            try:
+                with open(s["filepath"], "r", encoding="utf-8") as fp:
+                    secondary_details += fp.read()
+            except Exception:
+                secondary_details += "<Unable to load file>"
+
+        # Build request string for storing / debugging
+        request_str = (
+            "### SYSTEM PROMPT USED ###\n"
+            f"{SYSTEM_PROMPT}\n\n"
+            "### USER PROMPT USED (Built from LC + Secondary Docs) ###\n"
+            f"{used_prompt}\n\n"
+            "### PIPELINE CONTEXT ###\n"
+            f"LC TYPE: {self.lc_type} ({self.lc_code})\n"
+            f"LIFECYCLE: {self.lifecycle_code}\n"
+            f"Primary File: {primary_file.name}\n"
+            f"{primary_text}\n\n"
+            f"Secondary Documents ({len(saved_secondary)} files):\n"
+            f"{secondary_details}"
+        )
+
+
+        return {
+            "request": request_str,
+            "response": md_content,
+            "analysis": md_content,
+            "prompt": used_prompt,
+            "tokens": tokens,
+            "meta": {
+                "md_report_file": str(md_file),
+                "csv_report_file": str(csv_file) if csv_file else None,
+            },
+        }
