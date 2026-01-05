@@ -115,8 +115,8 @@ export const MENU_SIDEBAR: TMenuConfig = [
         permission: 'AccessLogs'
       },
       {
-        title: 'Sanctions',
-        path: '/sanction',
+        title: 'Sanction Check',
+        path: '/sanction Check',
         permission: 'AccessLogs'
       },
       {
@@ -207,19 +207,19 @@ export const MENU_SIDEBAR: TMenuConfig = [
   }
 ],
 },
-  //  {
-  //   id: 'sanction',
-  //   title: 'Sanction Management', 
-  //   asset_key: 'Sanction_Management',
-  //   icon: 'shield-cross',
-  //   children: [
-  //     {
-  //       title: 'Sanction',
-  //       path: '/sanction',
-  //       permission: 'AccessLogs'
-  //     },
-  //   ]
-  // },
+   {
+    id: 'sanction',
+    title: 'Sanction Management', 
+    asset_key: 'Sanction_Management',
+    icon: 'shield-cross',
+    children: [
+      {
+        title: 'Sanction',
+        path: '/sanction',
+        permission: 'AccessLogs'
+      },
+    ]
+  },
    {
     id: 'TBML',
     title: 'TBML Management', 
