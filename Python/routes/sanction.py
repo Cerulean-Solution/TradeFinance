@@ -266,7 +266,8 @@ async def get_logs(limit: int = 10):
 
 
 
-# # app.pyfrom fastapi import FastAPI, HTTPException
+# # app.py
+# from fastapi import FastAPI, HTTPException
 # from fastapi.middleware.cors import CORSMiddleware
 # from pydantic import BaseModel
 # from typing import Optional, List
@@ -277,7 +278,7 @@ async def get_logs(limit: int = 10):
 
 
 # # Import your existing utility functions
-# from db_utils import (
+# from sanction_1.db_utils import (
 #     test_database_connection,
 #     test_azure_openai_connection,
 #     get_sanctions_data,
@@ -286,7 +287,7 @@ async def get_logs(limit: int = 10):
 #     retrieve_screening_activity,
 #     log_message
 # )
-# from matching_algorithms import run_all_matching_techniques
+# from sanction_1.matching_algorithms import run_all_matching_techniques
 
 # app = FastAPI(title="Sanctions Screening API", version="4.0")
 # origins = [
