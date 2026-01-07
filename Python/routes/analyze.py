@@ -1,18 +1,20 @@
 from fastapi import APIRouter
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
-
+import os 
+from datetime import datetime
 from analyzers.lc_document_analyzer import LCDocumentAnalyzer
 from analyzers.cross_document_analyzer import CrossDocumentAnalyzer
 from analyzers.multi_hop_analyzer import MultiHopAnalyzer
 from core.db import get_connection
 from utils.txn_generator import generate_unique_transaction_no
-from routes.tool_instrument import insert_tool_instrument_prompt,save_llm_response ,save_llm_request,save_discrepancy,save_cross_document_discrepancy,save_multihop_discrepancy,insert_tool_billing # ⭐ IMPORT response saver
+from routes.tool_instrument import insert_tool_instrument_prompt,save_llm_response ,save_llm_request,save_discrepancy,save_cross_document_discrepancy,save_multihop_discrepancy,insert_tool_billing,save_whole_discrepancy
 from analyzers.cross_document_analyzer import (
     extract_table_rows_from_markdown,
     extract_detailed_discrepancies,
     merge_table_and_details,
     extract_multihop_discrepancy_rows,
+
 )
 from Prompts.multi_hops_prompts import (
     QUESTION_ANALYSIS_PROMPT,
@@ -23,12 +25,16 @@ from Prompts.multi_hops_prompts import (
     ADVANCED_VERIFICATION_PROMPT,
     USER_PROMPT
 )
+import re
+
 
 from Prompts.prompts import (
     SYSTEM_PROMPT
 )
 from Prompts.sysprompt import SYSTEM_PROMPT, SYSTEM_DETAIL_PROMPT
 router = APIRouter(prefix="/api/lc", tags=["Analysis"])
+
+RESULT_DIR = "analysis_results"
 # -----------------------------------------------------------
 # Request from React
 # -----------------------------------------------------------
@@ -127,6 +133,134 @@ def normalize(result_raw):
         }
     }
 
+
+def save_mode_result_to_txt(
+    transaction_id: str,
+    mode_name: str,
+    file_name: str,
+    result: dict,
+    instrument: str,
+    lifecycle: str
+):
+    os.makedirs(RESULT_DIR, exist_ok=True)
+
+    file_path = os.path.join(RESULT_DIR, f"{transaction_id}_{file_name}")
+
+    with open(file_path, "w", encoding="utf-8") as f:
+        f.write(f"MODE           : {mode_name}\n")
+        f.write(f"TRANSACTION ID : {transaction_id}\n")
+        f.write(f"INSTRUMENT     : {instrument}\n")
+        f.write(f"LIFECYCLE      : {lifecycle}\n")
+        f.write(f"TIMESTAMP      : {datetime.now()}\n")
+        f.write("\n" + "=" * 80 + "\n\n")
+
+        f.write("RESPONSE\n")
+        f.write("-" * 80 + "\n")
+        f.write(result.get("response", "") + "\n\n")
+
+
+
+def extract_mode1_issues_only(text: str) -> str:
+    """
+    Extract Mode-1 ISSUE content ONLY.
+    Everything AFTER '### TABULAR SUMMARY ###' is removed.
+    """
+
+    # 1️⃣ Cut content before TABULAR SUMMARY
+    split_text = re.split(r"\n###\s+TABULAR\s+SUMMARY\s+###", text, flags=re.IGNORECASE)
+    issue_part = split_text[0]
+
+    # 2️⃣ Clean trailing spaces
+    return issue_part.strip()
+
+
+# def extract_mode2_serials_only(text: str) -> str:
+#     """
+#     Extract:
+#     - Report title
+#     - TOTAL DISCREPANCIES FOUND
+#     - ALL #### Serial ID blocks
+#     """
+
+#     parts = []
+
+#     # 1️⃣ Report title
+#     title_match = re.search(
+#         r"# Trade Finance Compliance Cross Document Validation Analysis Report",
+#         text
+#     )
+#     if title_match:
+#         parts.append(title_match.group(0))
+
+#     # 2️⃣ Total discrepancies
+#     total_match = re.search(
+#         r"\*\*TOTAL DISCREPANCIES FOUND:\*\*\s*\d+",
+#         text
+#     )
+#     if total_match:
+#         parts.append("\n" + total_match.group(0))
+
+#     # 3️⃣ Serial ID blocks
+#     serial_blocks = re.findall(
+#         r"(#### Serial ID:\s*\d+[\s\S]*?)(?=\n#### Serial ID:\s*\d+|\Z)",
+#         text
+#     )
+
+#     if serial_blocks:
+#         parts.append("\n---\n" + "\n\n---\n\n".join(block.strip() for block in serial_blocks))
+
+#     return "\n\n".join(parts).strip()
+
+
+def extract_mode2_serials_only(text: str) -> str:
+    """
+    Extract Mode-2 output excluding ONLY the Markdown Table of Discrepancies.
+    Keeps:
+    - Report header
+    - Documents Processed
+    - Detailed Analysis
+    - TOTAL DISCREPANCIES FOUND
+    - ALL #### Serial ID blocks
+    """
+
+    # 1️⃣ Remove Markdown Table section completely
+    text_no_table = re.sub(
+        r"### Markdown Table of Discrepancies[\s\S]*?---",
+        "",
+        text,
+        flags=re.IGNORECASE
+    )
+
+    parts = []
+
+    # 2️⃣ Header + documents processed
+    header_match = re.search(
+        r"#Trade Finance Compliance Cross Document Validation Analysis Report[\s\S]*?"
+        r"## Documents Processed:[\s\S]*?---",
+        text_no_table
+    )
+    if header_match:
+        parts.append(header_match.group(0).strip())
+
+    # 3️⃣ TOTAL DISCREPANCIES FOUND
+    total_match = re.search(
+        r"\*\*TOTAL DISCREPANCIES FOUND:\*\*\s*\d+",
+        text_no_table
+    )
+    if total_match:
+        parts.append(total_match.group(0))
+
+    # 4️⃣ Serial ID blocks
+    serial_blocks = re.findall(
+        r"(#### Serial ID:\s*\d+[\s\S]*?)(?=\n#### Serial ID:\s*\d+|\Z)",
+        text_no_table
+    )
+
+    if serial_blocks:
+        parts.append("\n---\n".join(block.strip() for block in serial_blocks))
+
+    return "\n\n".join(parts).strip()
+
 @router.post("/analyze-lc")
 def analyze_lc(data: AnalysisRequest):
     print("start analysis")
@@ -168,6 +302,15 @@ def analyze_lc(data: AnalysisRequest):
 
         mode1_raw = m1.analyze(lc_text)
         mode1 = normalize(mode1_raw)
+        save_mode_result_to_txt(
+            transaction_id=transaction_id,
+            mode_name="Mode 1 – Against Own Standards",
+            file_name="against_own_standards_result.txt",
+            result=mode1,
+            instrument=instrument_code,
+            lifecycle=lifecycle_code
+        )
+
 
         request_id_m1 = save_llm_request(
             db=db,
@@ -259,8 +402,17 @@ def analyze_lc(data: AnalysisRequest):
 
         mode2_raw = m2.analyze(lc_text, presented_documents=sub_text)
         mode2 = normalize(mode2_raw)
+        save_mode_result_to_txt(
+            transaction_id=transaction_id,
+            mode_name="Mode 2 – Cross Document Validation",
+            file_name="cross_document_result.txt",
+            result=mode2,
+            instrument=instrument_code,
+            lifecycle=lifecycle_code
+        )
+
         # ---------------------------------------------------------
-        # ⭐ INSERT MODE-2 CROSS DOCUMENT DISCREPANCIES
+        # INSERT MODE-2 CROSS DOCUMENT DISCREPANCIES
         # ---------------------------------------------------------
         try:
             
@@ -357,29 +509,16 @@ def analyze_lc(data: AnalysisRequest):
 
         mode3_raw = m3.analyze(lc_text, presented_documents=sub_text)
         mode3 = normalize(mode3_raw)
-        # ---------------------------------------------------------
-        # ⭐ INSERT MODE-3 MULTIHOP DISCREPANCIES
-        # ---------------------------------------------------------
-        # try:
-        #     md_text = mode3["response"]
 
-        #     # A. row-level discrepancies
-        #     rows = extract_multihop_discrepancy_rows(md_text)
-        #     for r in rows:
-        #         save_multihop_discrepancy(
-        #             db=db,
-        #             d=r,
-        #             cifno=data.cifno,
-        #             transaction_no=transaction_id,
-        #             lc_number=data.lc_number,
-        #             UserID=data.UserID,
-        #             Model=model_name
-        #         )
+        save_mode_result_to_txt(
+            transaction_id=transaction_id,
+            mode_name="Mode 3 – MultiHop RAG",
+            file_name="multihop_result.txt",
+            result=mode3,
+            instrument=instrument_code,
+            lifecycle=lifecycle_code
+        )
 
-           
-
-        # except Exception as err:
-        #     print("MODE-3 MULTIHOP INSERT ERROR:", err)
 
 
         request_id_m3 = save_llm_request(
@@ -427,6 +566,37 @@ def analyze_lc(data: AnalysisRequest):
             UserID=data.UserID,
             Model=model_name
         )
+        # ==========================================================
+        # SAVE WHOLE DISCREPANCY (ONE ROW)
+        # ==========================================================
+
+        try:
+            own_issues_text = extract_mode1_issues_only(mode1["response"])
+            cross_serials_text = extract_mode2_serials_only(mode2["response"])
+            multihop_full_text = mode3["response"]
+
+            save_whole_discrepancy(
+                db=db,
+                transaction_no=transaction_id,
+                cifno=data.cifno,
+                lc_number=data.lc_number,
+                UserID=data.UserID,
+
+                own_discrepancy=own_issues_text,
+                cross_discrepancy=cross_serials_text,
+                multihop_discrepancy=multihop_full_text,
+
+                main_document=lc_text,        # ⭐ FIXED
+                sub_document=sub_text,        # ⭐ FIXED
+
+                Model=model_name,
+                Status="pending"
+            )
+
+
+        except Exception as err:
+            print("WHOLE DISCREPANCY INSERT ERROR:", err)
+
 
 
         inserted_billing_id = insert_tool_billing(

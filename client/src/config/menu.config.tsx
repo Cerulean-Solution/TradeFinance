@@ -85,7 +85,7 @@ export const MENU_SIDEBAR: TMenuConfig = [
     children: [
       {
         title: 'Magic Box',
-        path: '//magic_box',
+        path: '/magic_box',
         permission: 'AccessLogs'
       },
       {
@@ -94,7 +94,7 @@ export const MENU_SIDEBAR: TMenuConfig = [
         permission: 'AccessLogs'
       },
       {
-        title: 'ILC MT Generator',
+        title: 'ILC MT Management',
         path: '/MTconverter',
         permission: 'AccessLogs'
       },
@@ -103,13 +103,7 @@ export const MENU_SIDEBAR: TMenuConfig = [
         path: '/cross_doc_check',
         permission: 'AccessLogs'
       },
-      {
-        title: 'Find Discrepancy',
-        path: '/find_discrepancy',
-        permission: 'AccessLogs'
-      },
-
-      {
+           {
         title: 'Amendment Verification',
         path: '/amendment_verification',
         permission: 'AccessLogs'
@@ -120,46 +114,22 @@ export const MENU_SIDEBAR: TMenuConfig = [
         permission: 'AccessLogs'
       },
       {
-        title: 'Do NO Deal',
+        title: 'Do NOT Deal',
         path: '/do_no_deal',
         permission: 'AccessLogs'
       },
       {
-        title: 'vessels Tracking',
+        title: 'vessel Tracking',
         path: '/vessel_tracking',
         permission: 'AccessLogs'
       },
       {
-        title: 'Discrepancies',
-        path: '/discrepancies',
+        title: 'Discrepancy Management',
+        path: '/discrepancymanagement',
         permission: 'AccessLogs',
-         children: [
-          {
-            title: 'Cross Document Validation',
-            path: '/cross_document_validation'
-          },
-          {
-            title: 'OwnStandards/ Against Standards',
-            path: '/public-profile/profiles/creator'
-          },
-        ]
-        
+              
       },
-      {
-        title: 'Cure',
-        path: '/cure',
-        permission: 'AccessLogs',
-        children: [
-          {
-            title: 'Cross Document Validation',
-            path: '/cross_document_validation'
-          },
-          {
-            title: 'OwnStandards/ Against Standards',
-            path: '/public-profile/profiles/creator'
-          },
-        ]
-      },
+ 
       {
         title: 'Reports',
         path: '/reports',

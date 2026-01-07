@@ -295,66 +295,196 @@ def _build_document_list_for_prompt() -> str:
     ]
     return "\n".join([f"- {d}: {d}" for d in DOCS])
 
-
-def split_secondary_documents(content: str) -> List[Dict[str, Any]]:
-    from Model.cross_new_csv import TradeFinanceComplianceAnalyzer
-    # reuse the analyzer LLM to split — or call a light-weight classifier here
-    analyzer = TradeFinanceComplianceAnalyzer()
-    # fallback: try a simple split by headings if content contains "-----"
+def split_secondary_documents(content):
+    """Use AI to split secondary documents intelligently"""
+    if logger:
+        logger.info("Starting AI-based document splitting")
+    
     if not content or not content.strip():
+        if logger:
+            logger.warning("Empty content provided for splitting")
         return []
-    # call analyzer's internal splitting via an ad-hoc prompt approach using Azure (kept simple)
-    # For reliability, we reuse the analyzer.build_user_prompt after saving a temporary file set instead.
-    # But for now, attempt to do naive split by headings bounded by lines of "-----" or "###"
-    parts = []
-    # split on "-----" or double newlines + "###"
-    if "-----" in content:
-        chunks = [c.strip() for c in content.split("-----") if c.strip()]
-    elif "###" in content:
-        chunks = [c.strip() for c in content.split("###") if c.strip()]
-    else:
-        # single document fallback
-        chunks = [content.strip()]
+    
+    try:
+        client = AzureOpenAI(
+            api_key=os.getenv("AZURE_OPENAI_API_KEY"),
+            api_version=os.getenv("AZURE_OPENAI_API_VERSION"),
+            azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
+        )
+        chat_deployment = os.getenv("AZURE_OPENAI_CHAT_DEPLOYMENT", "gpt-4o")
+        
+        prompt = f'''You are an AI trade finance document parser.
 
-    for i, c in enumerate(chunks, 1):
-        heading = f"Document {i}"
-        identified_name = "Unknown"
-        # crude heuristics
-        if "invoice" in c.lower():
-            identified_name = "Commercial Invoice"
-        elif "bill of lading" in c.lower() or "b/l" in c.lower():
-            identified_name = "Bill of Lading"
-        elif "insurance" in c.lower():
-            identified_name = "Insurance Certificate"
-        elif "packing list" in c.lower() or "packing" in c.lower():
-            identified_name = "Packing List"
-        elif "quality" in c.lower() or "certificate" in c.lower():
-            identified_name = "Quality Certificate"
+The following text contains multiple trade finance documents combined together.
+Your task is to identify and separate each individual document.
 
-        parts.append({"heading": heading, "content": c, "identified_name": identified_name})
+Text to parse:
+"""{content[:15000]}"""
 
-    return parts
+For each document found, provide:
+1. A clear heading/title
+2. The document type (e.g., Commercial Invoice, Bill of Lading, Packing List, Insurance Certificate, Quality Certificate, Certificate of Origin, etc.)
+3. The full content of that document
+
+Respond in this exact JSON format:
+{{
+    "documents": [
+        {{
+            "heading": "<document heading/title>",
+            "identified_name": "<document type>",
+            "content": "<full document content>"
+        }}
+    ]
+}}
+
+Important:
+- Preserve all original content exactly
+- Do not summarize or truncate
+- Include all documents found
+- Use standard trade finance document type names
+'''
+        
+        response = client.chat.completions.create(
+            model=chat_deployment,
+            messages=[
+                {"role": "system", "content": "You are a precise document parser. Output only valid JSON."},
+                {"role": "user", "content": prompt}
+            ],
+            temperature=0
+        )
+        
+        result = response.choices[0].message.content.strip()
+        
+        # Clean up JSON response
+        if result.startswith("```json"):
+            result = result[7:]
+        if result.startswith("```"):
+            result = result[3:]
+        if result.endswith("```"):
+            result = result[:-3]
+        result = result.strip()
+        
+        parsed = json.loads(result)
+        documents = parsed.get("documents", [])
+        
+        if logger:
+            logger.info(f"AI-based document splitting completed. Found {len(documents)} documents")
+            for i, doc in enumerate(documents, 1):
+                heading = doc.get('heading', 'Unknown')
+                identified_name = doc.get('identified_name', 'Unknown')
+                content_length = len(doc.get('content', ''))
+                logger.info(f"Document {i}: {heading} ({identified_name}) - {content_length} chars")
+        
+        return documents
+        
+    except Exception as e:
+        error_msg = f"Error in AI-based document splitting: {e}"
+       
+        return []
 
 
-def ai_verify_and_correct_document_names(documents: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-    # For stability, simply map common names through heuristics
-    for d in documents:
-        name = (d.get("identified_name") or "").lower()
-        if "invoice" in name:
-            d["verified_name"] = "Commercial Invoice"
-        elif "lading" in name or "b/l" in name:
-            d["verified_name"] = "Bill of Lading"
-        elif "insurance" in name:
-            d["verified_name"] = "Insurance Certificate"
-        elif "packing" in name:
-            d["verified_name"] = "Packing List"
-        elif "quality" in name:
-            d["verified_name"] = "Quality Certificate"
-        elif "lc" in name or "credit" in name:
-            d["verified_name"] = "Letter of Credit"
-        else:
-            d["verified_name"] = d.get("identified_name") or "Unknown"
-    return documents
+def ai_verify_and_correct_document_names(documents):
+    """Recheck AI-identified document names using a verification LLM call"""
+    if logger:
+        logger.info("Starting AI-based verification of document names")
+    
+    if not documents:
+        if logger:
+            logger.warning("No documents to verify")
+        return documents
+
+    verified_docs = []
+    client = AzureOpenAI(
+        api_key=os.getenv("AZURE_OPENAI_API_KEY"),
+        api_version=os.getenv("AZURE_OPENAI_API_VERSION"),
+        azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
+    )
+    chat_deployment = os.getenv("AZURE_OPENAI_CHAT_DEPLOYMENT", "gpt-4o-mini")
+
+    for i, doc in enumerate(documents, 1):
+        heading = doc.get("heading", f"Document {i}")
+        snippet = doc.get("content", "")[:1000]
+        old_name = doc.get("identified_name", "Unknown")
+
+        prompt = f'''
+You are an AI trade finance document verifier.
+
+The following text is an excerpt from a trade finance document.
+
+Snippet:
+"""{snippet}"""
+
+The system initially identified it as: "{old_name}"
+
+Your task:
+- Verify if the name is correct.
+- If it's wrong, correct it based on actual content clues.
+- Only choose from these document types:
+  ["Letter of Credit", "Commercial Invoice", "Packing List", "Bill of Lading", "Insurance Certificate", "Certificate of Origin", "Quality Certificate", "Inspection Certificate", "Other/Unknown"]
+
+Respond ONLY in this JSON format:
+{{"verified_name": "<best matching document name>"}}
+'''
+
+        try:
+            response = client.chat.completions.create(
+                model=chat_deployment,
+                messages=[
+                    {"role": "system", "content": "You are a careful AI verifier. Output only JSON."},
+                    {"role": "user", "content": prompt}
+                ],
+                temperature=0
+            )
+
+            result = response.choices[0].message.content.strip()
+            # Clean up JSON response
+            if result.startswith("```json"):
+                result = result[7:]
+            if result.startswith("```"):
+                result = result[3:]
+            if result.endswith("```"):
+                result = result[:-3]
+            result = result.strip()
+            
+            try:
+                verified_json = json.loads(result)
+                verified_name = verified_json.get("verified_name", old_name)
+            except json.JSONDecodeError:
+                if logger:
+                    logger.warning(f"Could not parse verification response for {heading}. Using old name.")
+                verified_name = old_name
+
+            # Normalize to standard trade names
+            name_lower = (verified_name or "").lower()
+            if "lading" in name_lower or "b/l" in name_lower or "ocean" in name_lower:
+                verified_name = "Bill of Lading"
+            elif "insurance" in name_lower or "policy" in name_lower or "cargo" in name_lower:
+                verified_name = "Insurance Certificate"
+            elif "invoice" in name_lower:
+                verified_name = "Commercial Invoice"
+            elif "packing" in name_lower or "weight" in name_lower:
+                verified_name = "Packing List"
+            elif "origin" in name_lower or "coo" in name_lower:
+                verified_name = "Certificate of Origin"
+            elif "quality" in name_lower or "inspection" in name_lower:
+                verified_name = "Quality Certificate"
+            elif "credit" in name_lower or "lc" in name_lower:
+                verified_name = "Letter of Credit"
+
+            doc["verified_name"] = verified_name
+            verified_docs.append(doc)
+            if logger:
+                logger.info(f"✅ Verified {heading}: {old_name} → {verified_name}")
+
+        except Exception as e:
+            if logger:
+                logger.error(f"Verification error for {heading}: {e}")
+            doc["verified_name"] = old_name
+            verified_docs.append(doc)
+
+    if logger:
+        logger.info(f"Verification completed for {len(verified_docs)} documents")
+    return verified_docs
 
 
 def determine_document_type_for_heading(identified_name: str, filename: str) -> str:

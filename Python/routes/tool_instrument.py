@@ -388,38 +388,38 @@ def insert_tool_billing(
     row = cursor.fetchone()
     db.commit()
     return row[0] if row else None
-
-# def insert_tool_subdocument(
-#     db,
-#     transaction_no: str,
-#     cifno: str,
-#     instrument_type: str,
-#     lifecycle: str,
-#     lc_number: str,
-#     UserID: int,
-#     Model: str,
-#     category: str,
-#     document_text: str
-# ):
-#     cursor = db.cursor()
-#     cursor.execute(
-#         """
-#         EXEC dbo.sp_insert_tool_subdocuments
-#             ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
-#         """,
-#         (
-#             transaction_no,
-#             cifno,
-#             instrument_type,
-#             lifecycle,
-#             lc_number,
-#             UserID,
-#             Model,
-#             category,
-#             category,
-#             document_text
-#         )
-#     )
-
-#     # ❌ REMOVE fetchone()
-#     db.commit()
+def save_whole_discrepancy(
+    db,
+    transaction_no: str,
+    cifno: str,
+    lc_number: str,
+    UserID: int,
+    own_discrepancy: str,
+    cross_discrepancy: str,
+    multihop_discrepancy: str,
+    main_document: str,          # :star: lc_text
+    sub_document: str,           # :star: sub_text
+    Model: str,
+    Status: str = "progress"
+):
+    cursor = db.cursor()
+    cursor.execute(
+        """
+        EXEC dbo.sp_insert_tool_Whole_discrepancy
+            ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
+        """,
+        (
+            transaction_no,                  # 1
+            cifno,                           # 2
+            lc_number,                       # 3
+            UserID,                          # 4
+            own_discrepancy,                 # 5
+            cross_discrepancy,               # 6
+            multihop_discrepancy,            # 7
+            main_document,                   # 8
+            sub_document,                    # 9
+            Status,                          # 10
+            Model                            # 11
+        )
+    )
+    db.commit()
