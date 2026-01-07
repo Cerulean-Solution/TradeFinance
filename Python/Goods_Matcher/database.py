@@ -61,88 +61,30 @@ class DatabaseManager:
             self.connection = None
     
     def get_export_control_items(self):
-        """Retrieve all items from ExportControlItems table"""
+        """Retrieve all items from ExportControlItems using stored procedure"""
         try:
             if not self.connection:
                 self.connect()
-            
-            query = """
-            SELECT [ItemID]
-                  ,[SourceRegulation]
-                  ,[SourceDocument]
-                  ,[SourceCountry]
-                  ,[ItemDescription]
-                  ,[ShortDescription]
-                  ,[FullText]
-                  ,[CreatedDate]
-                  ,[ModifiedDate]
-            FROM [TF_genie].[dbo].[ExportControlItems]
-            """
-            
+
+            query = "{CALL GetExportControlItems}"
+
             cursor = self.connection.cursor()
             cursor.execute(query)
             rows = cursor.fetchall()
-            
-            # Convert to list of dictionaries
+
             columns = [column[0] for column in cursor.description]
-            results = []
-            for row in rows:
-                results.append(dict(zip(columns, row)))
-            
-            self.logger.log_sql(query, result_count=len(results))
+            results = [dict(zip(columns, row)) for row in rows]
+
+            self.logger.log_sql(
+                "GetExportControlItems",
+                result_count=len(results)
+            )
             return results
+
         except Exception as e:
-            self.logger.log_error("Query Execution", str(e), query)
+            self.logger.log_error("Query Execution", str(e), "GetExportControlItems")
             return []
-    
-    # def save_activity(self, run_id, input_description, matches, techniques_used):
-    #     """Save matching activity to tf_sanctions_activity table"""
-    #     try:
-    #         if not self.connection:
-    #             self.connect()
-            
-    #         # Create table if it doesn't exist
-    #         create_table_query = """
-    #         IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='tf_sanctions_activity' AND xtype='U')
-    #         CREATE TABLE tf_sanctions_activity (
-    #             RunID INT PRIMARY KEY,
-    #             RunDate DATETIME,
-    #             InputDescription NVARCHAR(MAX),
-    #             MatchCount INT,
-    #             TechniquesUsed NVARCHAR(MAX),
-    #             MatchResults NVARCHAR(MAX)
-    #         )
-    #         """
-            
-    #         cursor = self.connection.cursor()
-    #         cursor.execute(create_table_query)
-    #         self.connection.commit()
-            
-    #         # Insert activity record
-    #         insert_query = """
-    #         INSERT INTO tf_sanctions_activity 
-    #         (RunID, RunDate, InputDescription, MatchCount, TechniquesUsed, MatchResults)
-    #         VALUES (?, ?, ?, ?, ?, ?)
-    #         """
-            
-    #         match_results = str(matches)[:4000]  # Limit size
-    #         techniques = ", ".join(techniques_used)
-            
-    #         cursor.execute(insert_query, (
-    #             run_id,
-    #             datetime.now(),
-    #             input_description,
-    #             len(matches),
-    #             techniques,
-    #             match_results
-    #         ))
-    #         self.connection.commit()
-            
-    #         self.logger.log_sql(insert_query, params=f"RunID={run_id}", result_count=1)
-    #         return True
-    #     except Exception as e:
-    #         self.logger.log_error("Save Activity", str(e))
-    #         return False
+  
     def save_activity(self, run_id, input_description, matches, techniques_used):
         """Save matching activity to tf_sanctions_activity using stored procedure"""
         try:
@@ -179,34 +121,6 @@ class DatabaseManager:
         except Exception as e:
             self.logger.log_error("Save Activity", str(e))
             return False
-        
-    # def get_activity_by_run_id(self, run_id):
-    #     """Retrieve activity by run ID"""
-    #     try:
-    #         if not self.connection:
-    #             self.connect()
-            
-    #         query = """
-    #         SELECT RunID, RunDate, InputDescription, MatchCount, TechniquesUsed, MatchResults
-    #         FROM tf_sanctions_activity
-    #         WHERE RunID = ?
-    #         """
-            
-    #         cursor = self.connection.cursor()
-    #         cursor.execute(query, (run_id,))
-    #         row = cursor.fetchone()
-            
-    #         if row:
-    #             columns = [column[0] for column in cursor.description]
-    #             result = dict(zip(columns, row))
-    #             self.logger.log_sql(query, params=f"RunID={run_id}", result_count=1)
-    #             return result
-            
-    #         self.logger.log_sql(query, params=f"RunID={run_id}", result_count=0)
-    #         return None
-    #     except Exception as e:
-    #         self.logger.log_error("Retrieve Activity", str(e))
-    #         return None
 
     def get_activity_by_run_id(self, run_id):
         """Retrieve activity by ID from tf_sanctions_activity"""
