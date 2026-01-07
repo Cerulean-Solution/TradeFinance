@@ -1,0 +1,219 @@
+[2025-11-11 02:52:06.770] [ACTIVITY] Test
+    Details: Component test started
+--------------------------------------------------------------------------------
+[2025-11-11 02:52:06.771] [SQL] Query Executed
+    Details: Query: SELECT * FROM test
+    Result Count: 10
+--------------------------------------------------------------------------------
+[2025-11-11 02:52:06.771] [ERROR] Test Error
+    Details: Error: This is a test error
+--------------------------------------------------------------------------------
+[2025-11-11 16:37:32.197] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2025-11-11 16:37:39.301] [ACTIVITY] Search Initiated
+    Details: Input: shahul oxygen hydrogen fluoride hameed
+--------------------------------------------------------------------------------
+[2025-11-11 16:37:39.354] [SQL] Query Executed
+    Details: Query: 
+            SELECT [ItemID]
+                  ,[SourceRegulation]
+                  ,[SourceDocument]
+                  ,[SourceCountry]
+                  ,[ItemDescription]
+                  ,[ShortDescription]
+                  ,[FullText]
+                  ,[CreatedDate]
+                  ,[ModifiedDate]
+            FROM [TF_genie].[dbo].[ExportControlItems]
+            
+    Result Count: 5661
+--------------------------------------------------------------------------------
+[2025-11-11 16:37:39.355] [ACTIVITY] Database Query
+    Details: Retrieved 5661 items from database
+--------------------------------------------------------------------------------
+[2025-11-11 16:38:01.974] [MATCH_RUN] Matching Operation
+    Details: Run ID: 1
+    Input: shahul oxygen hydrogen fluoride hameed
+    Matches Found: 9
+--------------------------------------------------------------------------------
+[2025-11-11 16:38:01.984] [ERROR] Save Activity
+    Details: Error: ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'RunID'. (207) (SQLExecDirectW); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'RunDate'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'InputDescription'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'MatchCount'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'TechniquesUsed'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'MatchResults'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Statement(s) could not be prepared. (8180)")
+--------------------------------------------------------------------------------
+[2025-11-11 16:38:26.630] [ACTIVITY] Search Initiated
+    Details: Input: shahul oxygen hydrogen fluoride hameed
+--------------------------------------------------------------------------------
+[2025-11-11 16:38:26.681] [SQL] Query Executed
+    Details: Query: 
+            SELECT [ItemID]
+                  ,[SourceRegulation]
+                  ,[SourceDocument]
+                  ,[SourceCountry]
+                  ,[ItemDescription]
+                  ,[ShortDescription]
+                  ,[FullText]
+                  ,[CreatedDate]
+                  ,[ModifiedDate]
+            FROM [TF_genie].[dbo].[ExportControlItems]
+            
+    Result Count: 5661
+--------------------------------------------------------------------------------
+[2025-11-11 16:38:26.682] [ACTIVITY] Database Query
+    Details: Retrieved 5661 items from database
+--------------------------------------------------------------------------------
+[2025-11-11 16:38:49.678] [MATCH_RUN] Matching Operation
+    Details: Run ID: 2
+    Input: shahul oxygen hydrogen fluoride hameed
+    Matches Found: 9
+--------------------------------------------------------------------------------
+[2025-11-11 16:38:49.685] [ERROR] Save Activity
+    Details: Error: ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'RunID'. (207) (SQLExecDirectW); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'RunDate'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'InputDescription'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'MatchCount'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'TechniquesUsed'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'MatchResults'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Statement(s) could not be prepared. (8180)")
+--------------------------------------------------------------------------------
+[2025-11-15 12:56:41.092] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2025-11-15 12:56:55.875] [ACTIVITY] Search Initiated
+    Details: Input: shahul oxygen hydrogen fluoride hameed sandhya
+--------------------------------------------------------------------------------
+[2025-11-15 12:56:56.326] [SQL] Query Executed
+    Details: Query: 
+            SELECT [ItemID]
+                  ,[SourceRegulation]
+                  ,[SourceDocument]
+                  ,[SourceCountry]
+                  ,[ItemDescription]
+                  ,[ShortDescription]
+                  ,[FullText]
+                  ,[CreatedDate]
+                  ,[ModifiedDate]
+            FROM [TF_genie].[dbo].[ExportControlItems]
+            
+    Result Count: 5661
+--------------------------------------------------------------------------------
+[2025-11-15 12:56:56.328] [ACTIVITY] Database Query
+    Details: Retrieved 5661 items from database
+--------------------------------------------------------------------------------
+[2025-11-15 12:57:30.077] [MATCH_RUN] Matching Operation
+    Details: Run ID: 1
+    Input: shahul oxygen hydrogen fluoride hameed sandhya
+    Matches Found: 9
+--------------------------------------------------------------------------------
+[2025-11-15 12:57:30.113] [ERROR] Save Activity
+    Details: Error: ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'RunID'. (207) (SQLExecDirectW); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'RunDate'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'InputDescription'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'MatchCount'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'TechniquesUsed'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'MatchResults'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Statement(s) could not be prepared. (8180)")
+--------------------------------------------------------------------------------
+[2026-01-05 12:55:25.700] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-05 12:55:39.371] [ACTIVITY] Search Initiated
+    Details: Input: shahul oxygen hydrogen fluoride hameed
+--------------------------------------------------------------------------------
+[2026-01-05 12:55:39.549] [SQL] Query Executed
+    Details: Query: 
+            SELECT [ItemID]
+                  ,[SourceRegulation]
+                  ,[SourceDocument]
+                  ,[SourceCountry]
+                  ,[ItemDescription]
+                  ,[ShortDescription]
+                  ,[FullText]
+                  ,[CreatedDate]
+                  ,[ModifiedDate]
+            FROM [TF_genie].[dbo].[ExportControlItems]
+            
+    Result Count: 5045
+--------------------------------------------------------------------------------
+[2026-01-05 12:55:39.549] [ACTIVITY] Database Query
+    Details: Retrieved 5045 items from database
+--------------------------------------------------------------------------------
+[2026-01-05 12:55:55.894] [MATCH_RUN] Matching Operation
+    Details: Run ID: 1
+    Input: shahul oxygen hydrogen fluoride hameed
+    Matches Found: 9
+--------------------------------------------------------------------------------
+[2026-01-05 12:55:55.901] [ERROR] Save Activity
+    Details: Error: ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'RunID'. (207) (SQLExecDirectW); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'RunDate'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'InputDescription'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'MatchCount'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'TechniquesUsed'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'MatchResults'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Statement(s) could not be prepared. (8180)")
+--------------------------------------------------------------------------------
+[2026-01-05 15:00:12.193] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-05 15:00:20.672] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-05 15:10:02.130] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-05 15:10:07.731] [ACTIVITY] Search Initiated
+    Details: Input: shahul oxygen hydrogen fluoride hameed
+--------------------------------------------------------------------------------
+[2026-01-05 15:10:07.996] [SQL] Query Executed
+    Details: Query: 
+            SELECT [ItemID]
+                  ,[SourceRegulation]
+                  ,[SourceDocument]
+                  ,[SourceCountry]
+                  ,[ItemDescription]
+                  ,[ShortDescription]
+                  ,[FullText]
+                  ,[CreatedDate]
+                  ,[ModifiedDate]
+            FROM [TF_genie].[dbo].[ExportControlItems]
+            
+    Result Count: 5045
+--------------------------------------------------------------------------------
+[2026-01-05 15:10:07.997] [ACTIVITY] Database Query
+    Details: Retrieved 5045 items from database
+--------------------------------------------------------------------------------
+[2026-01-05 15:13:12.390] [MATCH_RUN] Matching Operation
+    Details: Run ID: 1
+    Input: shahul oxygen hydrogen fluoride hameed
+    Matches Found: 9
+--------------------------------------------------------------------------------
+[2026-01-05 15:13:12.398] [ERROR] Save Activity
+    Details: Error: ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'RunID'. (207) (SQLExecDirectW); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'RunDate'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'InputDescription'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'MatchCount'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'TechniquesUsed'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'MatchResults'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Statement(s) could not be prepared. (8180)")
+--------------------------------------------------------------------------------
+[2026-01-05 15:21:31.399] [ACTIVITY] Search Initiated
+    Details: Input: high strength aluminum tubes for aerospace applications
+--------------------------------------------------------------------------------
+[2026-01-05 15:21:31.778] [SQL] Query Executed
+    Details: Query: 
+            SELECT [ItemID]
+                  ,[SourceRegulation]
+                  ,[SourceDocument]
+                  ,[SourceCountry]
+                  ,[ItemDescription]
+                  ,[ShortDescription]
+                  ,[FullText]
+                  ,[CreatedDate]
+                  ,[ModifiedDate]
+            FROM [TF_genie].[dbo].[ExportControlItems]
+            
+    Result Count: 5045
+--------------------------------------------------------------------------------
+[2026-01-05 15:21:31.779] [ACTIVITY] Database Query
+    Details: Retrieved 5045 items from database
+--------------------------------------------------------------------------------
+[2026-01-05 15:26:41.019] [MATCH_RUN] Matching Operation
+    Details: Run ID: 2
+    Input: high strength aluminum tubes for aerospace applications
+    Matches Found: 61
+--------------------------------------------------------------------------------
+[2026-01-05 15:26:41.957] [ERROR] Save Activity
+    Details: Error: ('08S01', '[08S01] [Microsoft][ODBC Driver 17 for SQL Server]TCP Provider: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.\r\n (10060) (SQLExecDirectW); [08S01] [Microsoft][ODBC Driver 17 for SQL Server]Communication link failure (10060)')
+--------------------------------------------------------------------------------
+[2026-01-05 15:59:15.023] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------

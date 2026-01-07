@@ -22,6 +22,7 @@ import AccountSettingsSidebarPage from '@/pages/Sanction/AccountSettingsSidebarP
 import FourtySixA from '@/pages/46A/FourtySixA';
 import DocumentDetails from '@/pages/46A/Documentdetails';
 import AccountSettingsSidebarPages from '@/pages/Trade_Based_ML/AccountSettingsSidebarPage';
+import GoodsMatching from '@/pages/goodsMatcher/GoodsMatching';
 
 const AppRoutingSetup = (): ReactElement => {
   return (
@@ -61,6 +62,7 @@ const AppRoutingSetup = (): ReactElement => {
             {/* ------------------ */}
 
             <Route path="/TBML" element={<AccountSettingsSidebarPages/>}></Route>
+            <Route path ="/GoodsMatcher" element ={<GoodsMatching/>}></Route>
 
           </Route>
         </Route>

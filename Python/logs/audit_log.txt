@@ -1,0 +1,1933 @@
+[2026-01-06 09:31:58.693] [SQL] Query Executed
+    Details: Query: 
+            SELECT [ItemID]
+                  ,[SourceRegulation]
+                  ,[SourceDocument]
+                  ,[SourceCountry]
+                  ,[ItemDescription]
+                  ,[ShortDescription]
+                  ,[FullText]
+                  ,[CreatedDate]
+                  ,[ModifiedDate]
+            FROM [TF_genie].[dbo].[ExportControlItems]
+            
+    Result Count: 5045
+--------------------------------------------------------------------------------
+[2026-01-06 09:43:32.663] [SQL] Query Executed
+    Details: Query: 
+            SELECT [ItemID]
+                  ,[SourceRegulation]
+                  ,[SourceDocument]
+                  ,[SourceCountry]
+                  ,[ItemDescription]
+                  ,[ShortDescription]
+                  ,[FullText]
+                  ,[CreatedDate]
+                  ,[ModifiedDate]
+            FROM [TF_genie].[dbo].[ExportControlItems]
+            
+    Result Count: 5045
+--------------------------------------------------------------------------------
+[2026-01-06 09:49:54.871] [SQL] Query Executed
+    Details: Query: 
+            SELECT [ItemID]
+                  ,[SourceRegulation]
+                  ,[SourceDocument]
+                  ,[SourceCountry]
+                  ,[ItemDescription]
+                  ,[ShortDescription]
+                  ,[FullText]
+                  ,[CreatedDate]
+                  ,[ModifiedDate]
+            FROM [TF_genie].[dbo].[ExportControlItems]
+            
+    Result Count: 5045
+--------------------------------------------------------------------------------
+[2026-01-06 10:09:33.859] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 10:09:33.864] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 10:09:56.281] [ACTIVITY] Search Initiated
+    Details: high strength aluminum tubes for aerospace applications
+--------------------------------------------------------------------------------
+[2026-01-06 10:09:56.478] [SQL] Query Executed
+    Details: Query: 
+            SELECT [ItemID]
+                  ,[SourceRegulation]
+                  ,[SourceDocument]
+                  ,[SourceCountry]
+                  ,[ItemDescription]
+                  ,[ShortDescription]
+                  ,[FullText]
+                  ,[CreatedDate]
+                  ,[ModifiedDate]
+            FROM [TF_genie].[dbo].[ExportControlItems]
+            
+    Result Count: 5045
+--------------------------------------------------------------------------------
+[2026-01-06 10:27:41.605] [ACTIVITY] Search Initiated
+    Details: high strength aluminum tubes for aerospace applications
+--------------------------------------------------------------------------------
+[2026-01-06 10:27:42.026] [SQL] Query Executed
+    Details: Query: 
+            SELECT [ItemID]
+                  ,[SourceRegulation]
+                  ,[SourceDocument]
+                  ,[SourceCountry]
+                  ,[ItemDescription]
+                  ,[ShortDescription]
+                  ,[FullText]
+                  ,[CreatedDate]
+                  ,[ModifiedDate]
+            FROM [TF_genie].[dbo].[ExportControlItems]
+            
+    Result Count: 5045
+--------------------------------------------------------------------------------
+[2026-01-06 10:32:22.229] [MATCH_RUN] Matching Operation
+    Details: Run ID: 1
+    Input: high strength aluminum tubes for aerospace applications
+    Matches Found: 61
+--------------------------------------------------------------------------------
+[2026-01-06 10:32:22.249] [ERROR] Save Activity
+    Details: Error: ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'RunID'. (207) (SQLExecDirectW); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'RunDate'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'InputDescription'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'MatchCount'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'TechniquesUsed'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'MatchResults'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Statement(s) could not be prepared. (8180)")
+--------------------------------------------------------------------------------
+[2026-01-06 10:54:17.694] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 10:54:17.699] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 11:01:17.107] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 11:01:17.122] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 11:02:46.727] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 11:02:46.732] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 11:07:21.483] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 11:07:21.485] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 11:07:43.330] [ACTIVITY] Search Initiated
+    Details: hydrogen fluoride chemical compound used in industrial processing
+--------------------------------------------------------------------------------
+[2026-01-06 11:07:43.534] [SQL] Query Executed
+    Details: Query: 
+            SELECT [ItemID]
+                  ,[SourceRegulation]
+                  ,[SourceDocument]
+                  ,[SourceCountry]
+                  ,[ItemDescription]
+                  ,[ShortDescription]
+                  ,[FullText]
+                  ,[CreatedDate]
+                  ,[ModifiedDate]
+            FROM [TF_genie].[dbo].[ExportControlItems]
+            
+    Result Count: 5045
+--------------------------------------------------------------------------------
+[2026-01-06 11:13:29.079] [MATCH_RUN] Matching Operation
+    Details: Run ID: 1
+    Input: hydrogen fluoride chemical compound used in industrial processing
+    Matches Found: 55
+--------------------------------------------------------------------------------
+[2026-01-06 11:13:29.085] [ERROR] Save Activity
+    Details: Error: ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'RunID'. (207) (SQLExecDirectW); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'RunDate'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'InputDescription'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'MatchCount'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'TechniquesUsed'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'MatchResults'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Statement(s) could not be prepared. (8180)")
+--------------------------------------------------------------------------------
+[2026-01-06 11:24:57.763] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 11:28:24.751] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 11:28:28.307] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 11:28:28.313] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 11:28:48.855] [ACTIVITY] Search Initiated
+    Details: high strength aluminum tubes for aerospace applications
+--------------------------------------------------------------------------------
+[2026-01-06 11:28:49.061] [SQL] Query Executed
+    Details: Query: 
+            SELECT [ItemID]
+                  ,[SourceRegulation]
+                  ,[SourceDocument]
+                  ,[SourceCountry]
+                  ,[ItemDescription]
+                  ,[ShortDescription]
+                  ,[FullText]
+                  ,[CreatedDate]
+                  ,[ModifiedDate]
+            FROM [TF_genie].[dbo].[ExportControlItems]
+            
+    Result Count: 5045
+--------------------------------------------------------------------------------
+[2026-01-06 11:33:17.903] [MATCH_RUN] Matching Operation
+    Details: Run ID: 1
+    Input: high strength aluminum tubes for aerospace applications
+    Matches Found: 61
+--------------------------------------------------------------------------------
+[2026-01-06 11:33:17.921] [ERROR] Save Activity
+    Details: Error: ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'RunID'. (207) (SQLExecDirectW); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'RunDate'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'InputDescription'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'MatchCount'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'TechniquesUsed'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'MatchResults'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Statement(s) could not be prepared. (8180)")
+--------------------------------------------------------------------------------
+[2026-01-06 11:55:07.754] [ERROR] Add Test Entry
+    Details: Error: ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'Address'. (207) (SQLExecDirectW); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Statement(s) could not be prepared. (8180)")
+--------------------------------------------------------------------------------
+[2026-01-06 12:02:00.685] [ERROR] Add Test Entry
+    Details: Error: ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'Address'. (207) (SQLExecDirectW); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Statement(s) could not be prepared. (8180)")
+--------------------------------------------------------------------------------
+[2026-01-06 12:03:19.456] [SQL] Query Executed
+    Details: Query: INSERT INTO tf_sanctions (Name) VALUES (?)
+    Parameters: Name=High-Precision CNC Machine
+    Result Count: 1
+--------------------------------------------------------------------------------
+[2026-01-06 12:03:19.456] [ACTIVITY] Test Entry Added
+    Details: Name: High-Precision CNC Machine
+--------------------------------------------------------------------------------
+[2026-01-06 12:07:19.796] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 12:07:19.806] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 12:08:06.277] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 12:08:15.564] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 12:08:55.259] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 12:09:16.593] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 12:09:31.235] [SQL] Query Executed
+    Details: Query: INSERT INTO tf_sanctions (Name) VALUES (?)
+    Parameters: Name=High-Precision CNC Machine
+    Result Count: 1
+--------------------------------------------------------------------------------
+[2026-01-06 12:09:31.235] [ACTIVITY] Test Entry Added
+    Details: Name: High-Precision CNC Machine
+--------------------------------------------------------------------------------
+[2026-01-06 12:09:38.759] [SQL] Query Executed
+    Details: Query: INSERT INTO tf_sanctions (Name) VALUES (?)
+    Parameters: Name=High-Precision CNC Machine
+    Result Count: 1
+--------------------------------------------------------------------------------
+[2026-01-06 12:09:38.760] [ACTIVITY] Test Entry Added
+    Details: Name: High-Precision CNC Machine
+--------------------------------------------------------------------------------
+[2026-01-06 12:12:52.916] [ACTIVITY] Search Initiated
+    Details: High-Precision CNC Machine
+--------------------------------------------------------------------------------
+[2026-01-06 12:12:53.321] [SQL] Query Executed
+    Details: Query: 
+            SELECT [ItemID]
+                  ,[SourceRegulation]
+                  ,[SourceDocument]
+                  ,[SourceCountry]
+                  ,[ItemDescription]
+                  ,[ShortDescription]
+                  ,[FullText]
+                  ,[CreatedDate]
+                  ,[ModifiedDate]
+            FROM [TF_genie].[dbo].[ExportControlItems]
+            
+    Result Count: 5045
+--------------------------------------------------------------------------------
+[2026-01-06 12:13:56.461] [MATCH_RUN] Matching Operation
+    Details: Run ID: 1
+    Input: High-Precision CNC Machine
+    Matches Found: 134
+--------------------------------------------------------------------------------
+[2026-01-06 12:13:56.475] [ERROR] Save Activity
+    Details: Error: ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'RunID'. (207) (SQLExecDirectW); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'RunDate'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'InputDescription'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'MatchCount'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'TechniquesUsed'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'MatchResults'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Statement(s) could not be prepared. (8180)")
+--------------------------------------------------------------------------------
+[2026-01-06 12:24:53.732] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 12:25:26.269] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 12:25:47.605] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 12:25:51.263] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 12:26:02.430] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 12:26:02.454] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 12:26:12.045] [ACTIVITY] Search Initiated
+    Details: hydrogen fluoride chemical compound used in industrial processing
+--------------------------------------------------------------------------------
+[2026-01-06 12:26:12.252] [SQL] Query Executed
+    Details: Query: 
+            SELECT [ItemID]
+                  ,[SourceRegulation]
+                  ,[SourceDocument]
+                  ,[SourceCountry]
+                  ,[ItemDescription]
+                  ,[ShortDescription]
+                  ,[FullText]
+                  ,[CreatedDate]
+                  ,[ModifiedDate]
+            FROM [TF_genie].[dbo].[ExportControlItems]
+            
+    Result Count: 5045
+--------------------------------------------------------------------------------
+[2026-01-06 12:32:21.799] [MATCH_RUN] Matching Operation
+    Details: Run ID: 1
+    Input: hydrogen fluoride chemical compound used in industrial processing
+    Matches Found: 55
+--------------------------------------------------------------------------------
+[2026-01-06 12:32:21.823] [ERROR] Save Activity
+    Details: Error: ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'RunID'. (207) (SQLExecDirectW); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'RunDate'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'InputDescription'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'MatchCount'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'TechniquesUsed'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'MatchResults'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Statement(s) could not be prepared. (8180)")
+--------------------------------------------------------------------------------
+[2026-01-06 15:13:59.782] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 15:13:59.782] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 15:15:14.850] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 15:15:14.860] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 15:24:25.218] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 15:24:25.225] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 15:24:33.863] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 15:24:33.868] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 15:30:57.161] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 15:30:57.170] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 15:31:01.147] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 15:31:01.154] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 15:31:04.935] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 15:31:04.940] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 15:31:26.617] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 15:31:26.635] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 15:31:30.693] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 15:31:30.700] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 15:37:21.441] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: FAILED
+    Message: ('08001', '[08001] [Microsoft][ODBC Driver 17 for SQL Server]Named Pipes Provider: Could not open a connection to SQL Server [53].  (53) (SQLDriverConnect); [08001] [Microsoft][ODBC Driver 17 for SQL Server]Login timeout expired (0); [08001] [Microsoft][ODBC Driver 17 for SQL Server]Invalid connection string attribute (0); [08001] [Microsoft][ODBC Driver 17 for SQL Server]A network-related or instance-specific error has occurred while establishing a connection to SQL Server. Server is not found or not accessible. Check if instance name is correct and if SQL Server is configured to allow remote connections. For more information see SQL Server Books Online. (53)')
+--------------------------------------------------------------------------------
+[2026-01-06 15:37:41.463] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: FAILED
+    Message: ('08001', '[08001] [Microsoft][ODBC Driver 17 for SQL Server]Named Pipes Provider: Could not open a connection to SQL Server [53].  (53) (SQLDriverConnect); [08001] [Microsoft][ODBC Driver 17 for SQL Server]Login timeout expired (0); [08001] [Microsoft][ODBC Driver 17 for SQL Server]Invalid connection string attribute (0); [08001] [Microsoft][ODBC Driver 17 for SQL Server]A network-related or instance-specific error has occurred while establishing a connection to SQL Server. Server is not found or not accessible. Check if instance name is correct and if SQL Server is configured to allow remote connections. For more information see SQL Server Books Online. (53)')
+--------------------------------------------------------------------------------
+[2026-01-06 16:36:57.793] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:37:00.260] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:37:31.415] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:37:31.421] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:38:03.560] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:38:05.277] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:38:19.254] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:38:20.655] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:38:54.602] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:38:57.260] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:38:59.264] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:39:00.260] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:39:10.632] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:42:06.709] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:42:08.264] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:42:11.276] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:42:13.234] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:42:42.398] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:42:55.639] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:42:56.197] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:43:04.262] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:43:07.278] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:43:08.932] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:43:14.555] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:43:18.231] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:43:31.266] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:43:33.363] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:43:37.093] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:44:06.498] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:44:14.681] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:45:37.320] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:47:31.227] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:47:31.231] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:47:59.545] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:48:03.698] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:48:10.338] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:48:10.345] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:48:20.567] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:48:33.629] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:48:37.928] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:48:37.938] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:48:44.148] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:48:54.563] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:48:55.204] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:49:01.066] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:49:01.075] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:49:08.800] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:50:23.458] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:51:01.275] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:52:09.760] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:52:15.397] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:52:42.583] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:52:50.386] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:53:21.123] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:53:21.414] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:53:39.276] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:53:46.554] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:54:18.514] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:55:18.593] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:55:20.258] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:55:22.264] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:55:25.407] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:55:35.252] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:55:37.442] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:55:54.579] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:55:56.260] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:55:58.262] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:56:01.312] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:56:05.273] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:56:05.310] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:56:14.372] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:56:25.044] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:56:33.940] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:56:40.264] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:57:06.167] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:57:06.567] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:57:10.653] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:57:10.662] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:57:19.161] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:57:43.376] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:57:43.868] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:57:53.737] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:58:47.423] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:59:09.402] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:59:29.405] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 16:59:46.243] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:00:11.587] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:00:13.352] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:00:41.257] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:00:56.584] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:01:33.244] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:01:34.275] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:01:45.443] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:01:54.208] [ACTIVITY] Search Initiated
+    Details: hydrogen fluoride chemical compound used in industrial processing
+--------------------------------------------------------------------------------
+[2026-01-06 17:01:54.428] [SQL] Query Executed
+    Details: Query: 
+            SELECT [ItemID]
+                  ,[SourceRegulation]
+                  ,[SourceDocument]
+                  ,[SourceCountry]
+                  ,[ItemDescription]
+                  ,[ShortDescription]
+                  ,[FullText]
+                  ,[CreatedDate]
+                  ,[ModifiedDate]
+            FROM [TF_genie].[dbo].[ExportControlItems]
+            
+    Result Count: 5045
+--------------------------------------------------------------------------------
+[2026-01-06 17:04:03.599] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:04:26.212] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:06:06.854] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:06:11.464] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:06:14.363] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:06:22.706] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:06:25.389] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:06:27.356] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:06:28.436] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:06:30.341] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:06:32.355] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:06:34.352] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:06:36.322] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:06:43.291] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:06:55.758] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:06:57.437] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:06:58.323] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:07:01.319] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:07:12.386] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:07:36.522] [MATCH_RUN] Matching Operation
+    Details: Run ID: 1
+    Input: hydrogen fluoride chemical compound used in industrial processing
+    Matches Found: 55
+--------------------------------------------------------------------------------
+[2026-01-06 17:07:36.544] [ERROR] Save Activity
+    Details: Error: ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'RunID'. (207) (SQLExecDirectW); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'RunDate'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'InputDescription'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'MatchCount'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'TechniquesUsed'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'MatchResults'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Statement(s) could not be prepared. (8180)")
+--------------------------------------------------------------------------------
+[2026-01-06 17:07:55.715] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:08:14.711] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:09:10.039] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:09:49.193] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:10:05.290] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:14:17.728] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:14:27.290] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:15:23.991] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:15:24.005] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:15:31.857] [ACTIVITY] Search Initiated
+    Details: high frequency electronic components for military radar systems
+--------------------------------------------------------------------------------
+[2026-01-06 17:15:32.064] [SQL] Query Executed
+    Details: Query: 
+            SELECT [ItemID]
+                  ,[SourceRegulation]
+                  ,[SourceDocument]
+                  ,[SourceCountry]
+                  ,[ItemDescription]
+                  ,[ShortDescription]
+                  ,[FullText]
+                  ,[CreatedDate]
+                  ,[ModifiedDate]
+            FROM [TF_genie].[dbo].[ExportControlItems]
+            
+    Result Count: 5045
+--------------------------------------------------------------------------------
+[2026-01-06 17:15:46.420] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:15:48.672] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:21:34.380] [MATCH_RUN] Matching Operation
+    Details: Run ID: 1
+    Input: high frequency electronic components for military radar systems
+    Matches Found: 313
+--------------------------------------------------------------------------------
+[2026-01-06 17:21:34.398] [ERROR] Save Activity
+    Details: Error: ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'RunID'. (207) (SQLExecDirectW); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'RunDate'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'InputDescription'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'MatchCount'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'TechniquesUsed'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'MatchResults'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Statement(s) could not be prepared. (8180)")
+--------------------------------------------------------------------------------
+[2026-01-06 17:22:16.746] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:22:21.295] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:22:23.207] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:22:44.118] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:23:26.615] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:23:30.337] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:23:31.302] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:23:37.301] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:23:54.767] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:23:55.300] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:24:11.304] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:24:30.640] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:24:35.309] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:24:38.375] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:24:39.393] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:25:23.268] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:25:44.363] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:26:00.291] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:26:07.616] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:26:13.631] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:27:59.768] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:28:29.066] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:28:40.611] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:28:48.306] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:29:14.706] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:29:16.143] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:29:35.601] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:29:54.611] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-06 17:29:55.553] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 09:43:20.389] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 09:43:20.395] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 09:46:55.446] [ACTIVITY] Search Initiated
+    Details: hydrogen fluoride chemical compound used in industrial processing
+--------------------------------------------------------------------------------
+[2026-01-07 09:46:55.681] [SQL] Query Executed
+    Details: Query: 
+            SELECT [ItemID]
+                  ,[SourceRegulation]
+                  ,[SourceDocument]
+                  ,[SourceCountry]
+                  ,[ItemDescription]
+                  ,[ShortDescription]
+                  ,[FullText]
+                  ,[CreatedDate]
+                  ,[ModifiedDate]
+            FROM [TF_genie].[dbo].[ExportControlItems]
+            
+    Result Count: 5045
+--------------------------------------------------------------------------------
+[2026-01-07 09:52:56.210] [MATCH_RUN] Matching Operation
+    Details: Run ID: 1
+    Input: hydrogen fluoride chemical compound used in industrial processing
+    Matches Found: 55
+--------------------------------------------------------------------------------
+[2026-01-07 09:52:56.213] [ERROR] Save Activity
+    Details: Error: ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'RunID'. (207) (SQLExecDirectW); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'RunDate'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'InputDescription'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'MatchCount'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'TechniquesUsed'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'MatchResults'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Statement(s) could not be prepared. (8180)")
+--------------------------------------------------------------------------------
+[2026-01-07 09:56:58.220] [SQL] Query Executed
+    Details: Query: INSERT INTO tf_sanctions (Name) VALUES (?)
+    Parameters: Name=Radar systems, employing signal processing
+    Result Count: 1
+--------------------------------------------------------------------------------
+[2026-01-07 09:56:58.221] [ACTIVITY] Test Entry Added
+    Details: Name: Radar systems, employing signal processing
+--------------------------------------------------------------------------------
+[2026-01-07 10:00:15.344] [SQL] Query Executed
+    Details: Query: 
+            SELECT
+                id,
+                serial_number,
+                lc_number,
+                input_name,
+                input_address,
+                total_matches,
+                matches_data,
+                screening_status,
+                screening_duration_seconds,
+                records_processed,
+                created_at,
+                updated_at,
+                created_by,
+                notes,
+                UserID,
+                Model,
+                cifno
+            FROM tf_sanctions_activity
+            WHERE id = ?
+            
+    Parameters: id=1
+    Result Count: 1
+--------------------------------------------------------------------------------
+[2026-01-07 10:00:48.748] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 10:00:54.281] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 10:00:58.285] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 10:01:03.269] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 10:01:05.272] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 10:01:07.296] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 10:01:09.293] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 10:01:34.583] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 10:01:52.291] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 10:01:57.620] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 10:02:18.269] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 10:02:22.277] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 10:14:31.732] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 10:53:05.168] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 10:53:05.339] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 10:54:05.824] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 10:54:05.834] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 10:56:35.515] [ACTIVITY] Search Initiated
+    Details: high strength aluminum tubes for aerospace applications
+--------------------------------------------------------------------------------
+[2026-01-07 10:56:35.727] [SQL] Query Executed
+    Details: Query: 
+            SELECT [ItemID]
+                  ,[SourceRegulation]
+                  ,[SourceDocument]
+                  ,[SourceCountry]
+                  ,[ItemDescription]
+                  ,[ShortDescription]
+                  ,[FullText]
+                  ,[CreatedDate]
+                  ,[ModifiedDate]
+            FROM [TF_genie].[dbo].[ExportControlItems]
+            
+    Result Count: 5045
+--------------------------------------------------------------------------------
+[2026-01-07 11:01:14.865] [MATCH_RUN] Matching Operation
+    Details: Run ID: 1
+    Input: high strength aluminum tubes for aerospace applications
+    Matches Found: 61
+--------------------------------------------------------------------------------
+[2026-01-07 11:01:14.883] [ERROR] Save Activity
+    Details: Error: ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'RunID'. (207) (SQLExecDirectW); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'RunDate'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'InputDescription'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'MatchCount'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'TechniquesUsed'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'MatchResults'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Statement(s) could not be prepared. (8180)")
+--------------------------------------------------------------------------------
+[2026-01-07 11:02:39.970] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 11:02:39.975] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 11:24:42.705] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 11:24:42.706] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 11:24:45.289] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 11:24:45.430] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 11:25:38.268] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 11:25:38.269] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 11:25:44.805] [SQL] Query Executed
+    Details: Query: 
+            SELECT
+                id,
+                serial_number,
+                lc_number,
+                input_name,
+                input_address,
+                total_matches,
+                matches_data,
+                screening_status,
+                screening_duration_seconds,
+                records_processed,
+                created_at,
+                updated_at,
+                created_by,
+                notes,
+                UserID,
+                Model,
+                cifno
+            FROM tf_sanctions_activity
+            WHERE id = ?
+            
+    Parameters: id=0
+    Result Count: 0
+--------------------------------------------------------------------------------
+[2026-01-07 11:26:18.268] [SQL] Query Executed
+    Details: Query: 
+            SELECT
+                id,
+                serial_number,
+                lc_number,
+                input_name,
+                input_address,
+                total_matches,
+                matches_data,
+                screening_status,
+                screening_duration_seconds,
+                records_processed,
+                created_at,
+                updated_at,
+                created_by,
+                notes,
+                UserID,
+                Model,
+                cifno
+            FROM tf_sanctions_activity
+            WHERE id = ?
+            
+    Parameters: id=0
+    Result Count: 0
+--------------------------------------------------------------------------------
+[2026-01-07 11:26:23.219] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 11:26:23.330] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 11:26:27.380] [SQL] Query Executed
+    Details: Query: 
+            SELECT
+                id,
+                serial_number,
+                lc_number,
+                input_name,
+                input_address,
+                total_matches,
+                matches_data,
+                screening_status,
+                screening_duration_seconds,
+                records_processed,
+                created_at,
+                updated_at,
+                created_by,
+                notes,
+                UserID,
+                Model,
+                cifno
+            FROM tf_sanctions_activity
+            WHERE id = ?
+            
+    Parameters: id=0
+    Result Count: 0
+--------------------------------------------------------------------------------
+[2026-01-07 11:26:40.284] [SQL] Query Executed
+    Details: Query: 
+            SELECT
+                id,
+                serial_number,
+                lc_number,
+                input_name,
+                input_address,
+                total_matches,
+                matches_data,
+                screening_status,
+                screening_duration_seconds,
+                records_processed,
+                created_at,
+                updated_at,
+                created_by,
+                notes,
+                UserID,
+                Model,
+                cifno
+            FROM tf_sanctions_activity
+            WHERE id = ?
+            
+    Parameters: id=0
+    Result Count: 0
+--------------------------------------------------------------------------------
+[2026-01-07 11:28:32.752] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 11:28:32.757] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 11:28:32.768] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 11:28:32.773] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 11:29:40.588] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 11:29:40.602] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 11:29:43.272] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 11:29:43.274] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 11:30:03.274] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 11:30:03.421] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 11:30:05.465] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 11:30:06.260] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 11:30:10.661] [SQL] Query Executed
+    Details: Query: 
+            SELECT
+                id,
+                serial_number,
+                lc_number,
+                input_name,
+                input_address,
+                total_matches,
+                matches_data,
+                screening_status,
+                screening_duration_seconds,
+                records_processed,
+                created_at,
+                updated_at,
+                created_by,
+                notes,
+                UserID,
+                Model,
+                cifno
+            FROM tf_sanctions_activity
+            WHERE id = ?
+            
+    Parameters: id=1
+    Result Count: 1
+--------------------------------------------------------------------------------
+[2026-01-07 11:30:37.569] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 11:30:37.571] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 11:30:39.278] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 11:30:39.279] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 11:30:44.931] [SQL] Query Executed
+    Details: Query: 
+            SELECT
+                id,
+                serial_number,
+                lc_number,
+                input_name,
+                input_address,
+                total_matches,
+                matches_data,
+                screening_status,
+                screening_duration_seconds,
+                records_processed,
+                created_at,
+                updated_at,
+                created_by,
+                notes,
+                UserID,
+                Model,
+                cifno
+            FROM tf_sanctions_activity
+            WHERE id = ?
+            
+    Parameters: id=1
+    Result Count: 1
+--------------------------------------------------------------------------------
+[2026-01-07 11:31:10.711] [SQL] Query Executed
+    Details: Query: 
+            SELECT
+                id,
+                serial_number,
+                lc_number,
+                input_name,
+                input_address,
+                total_matches,
+                matches_data,
+                screening_status,
+                screening_duration_seconds,
+                records_processed,
+                created_at,
+                updated_at,
+                created_by,
+                notes,
+                UserID,
+                Model,
+                cifno
+            FROM tf_sanctions_activity
+            WHERE id = ?
+            
+    Parameters: id=3
+    Result Count: 1
+--------------------------------------------------------------------------------
+[2026-01-07 11:31:58.421] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 11:31:58.592] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 11:32:01.276] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 11:32:01.283] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 11:32:02.917] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 11:32:03.267] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 11:36:48.064] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 11:36:48.069] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 11:37:39.805] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 11:37:39.816] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 11:56:04.925] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 11:56:04.952] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 11:56:16.963] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 11:56:16.975] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 11:56:21.803] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 11:56:21.818] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 12:04:23.125] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 12:04:23.229] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 12:37:42.323] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 12:37:42.328] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 12:37:48.912] [SQL] Query Executed
+    Details: Query: GetActivityByRunId
+    Parameters: id=1
+    Result Count: 1
+--------------------------------------------------------------------------------
+[2026-01-07 12:43:21.986] [ERROR] Add Test Entry
+    Details: Error: name 'insert_query' is not defined
+--------------------------------------------------------------------------------
+[2026-01-07 12:44:19.246] [SQL] Query Executed
+    Details: Query: AddTestEntry
+    Parameters: Name=chemical
+    Result Count: 1
+--------------------------------------------------------------------------------
+[2026-01-07 12:44:19.246] [ACTIVITY] Test Entry Added
+    Details: Name: chemical
+--------------------------------------------------------------------------------
+[2026-01-07 12:46:32.859] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 12:46:32.888] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 12:46:40.626] [SQL] Query Executed
+    Details: Query: AddTestEntry
+    Parameters: Name=chemical
+    Result Count: 1
+--------------------------------------------------------------------------------
+[2026-01-07 12:46:40.626] [ACTIVITY] Test Entry Added
+    Details: Name: chemical
+--------------------------------------------------------------------------------
+[2026-01-07 12:46:45.878] [SQL] Query Executed
+    Details: Query: GetActivityByRunId
+    Parameters: id=4
+    Result Count: 1
+--------------------------------------------------------------------------------
+[2026-01-07 12:54:44.019] [ACTIVITY] Search Initiated
+    Details: hydrogen fluoride chemical compound used in industrial processing
+--------------------------------------------------------------------------------
+[2026-01-07 12:54:44.262] [SQL] Query Executed
+    Details: Query: 
+            SELECT [ItemID]
+                  ,[SourceRegulation]
+                  ,[SourceDocument]
+                  ,[SourceCountry]
+                  ,[ItemDescription]
+                  ,[ShortDescription]
+                  ,[FullText]
+                  ,[CreatedDate]
+                  ,[ModifiedDate]
+            FROM [TF_genie].[dbo].[ExportControlItems]
+            
+    Result Count: 5045
+--------------------------------------------------------------------------------
+[2026-01-07 13:00:29.781] [MATCH_RUN] Matching Operation
+    Details: Run ID: 1
+    Input: hydrogen fluoride chemical compound used in industrial processing
+    Matches Found: 55
+--------------------------------------------------------------------------------
+[2026-01-07 13:00:29.793] [ERROR] Save Activity
+    Details: Error: ('23000', "[23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Cannot insert explicit value for identity column in table 'tf_sanctions_activity' when IDENTITY_INSERT is set to OFF. (544) (SQLParamData)")
+--------------------------------------------------------------------------------
+[2026-01-07 14:38:16.159] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-07 14:38:16.179] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------

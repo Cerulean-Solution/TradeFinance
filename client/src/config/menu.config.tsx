@@ -110,12 +110,12 @@ export const MENU_SIDEBAR: TMenuConfig = [
       },
       {
         title: 'Sanction Check',
-        path: '/sanction Check',
+        path: '/sanction',
         permission: 'AccessLogs'
       },
       {
         title: 'Do NOT Deal',
-        path: '/do_no_deal',
+        path: '/GoodsMatcher',
         permission: 'AccessLogs'
       },
       {
