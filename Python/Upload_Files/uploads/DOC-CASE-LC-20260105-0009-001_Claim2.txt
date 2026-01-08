@@ -1,0 +1,123 @@
+Converted from: DiscrepancyReport_with_PageParaLine.pdf
+Discrepancy & Exceedance Report (Against Policy)
+References map to the issued policy PDF: page number (approx.), section/paragraph, and the exact line/snippet.
+
+Topic
+
+Page
+
+Paragraph/Section
+
+Exact Line / Snippet
+
+Claim Deviation
+
+Territorial Limit
+
+Usage Exclusion
+
+Driver Eligibility
+
+Page 1 A) Policy Schedule – Table, Row 5 (Geographical Area)
+
+“UAE (road use); GCC optional extension not selected”
+
+Accident in Muscat, Oman; no GCC extension. Not covered.
+
+Page 3 D) Excesses & Special Conditions – Bullet 4
+
+“Ride-hailing/commercial use: Excluded unless specifically endorsed”
+
+Paid ride-hailing use at time of accident. Excluded.
+
+Page 1 A) Policy Schedule – Table, Row 16 (Drivers Covered)
+
+“Any licensed driver aged 25–70… (min. 1 year license)”
+
+Driver 22 years old with ~6 months license. Breach.
+
+TPL Property Damage Limit
+
+Page 2 Section II – Third-Party Liability – Line 2“Third-Party Property Damage: up to AED 3,500,000 per event”
+
+Estimated TP damage AED 4,200,000 > limit.
+
+Notice RequirementPage 3
+
+F) Warranties & Duties – Bullet 3
+
+“Claims Notification: Notify within 48 hours”Insurer notified at ~96 hours. Late.
+
+New-for-Old ThresholdPage 2 C) Add-Ons – Item 3
+
+“If repair estimate ‡75% of IDV … replacement”Current estimate ~59% IDV; not eligible.
+
+Return to Invoice TriggerPage 2 C) Add-Ons – Item 2
+
+“TL/CTTL/theft within 12 months … pay Invoice Value”
+
+No TL/CTTL; not triggered.
+
+Personal Belongings Exclusion
+
+Page 2 C) Add-Ons – Item 9
+
+“… up to AED 2,000 (excludes cash, jewellery)”Cash AED 1,100 claimed ﬁ excluded.
+
+Engine & Gearbox Protect – Dependency
+
+Page 2 C) Add-Ons – Item 4
+
+“Covers … water ingression … due to covered event”
+
+Base OD excluded (territory/use). Add-on inoperative.
+
+#
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+10
+
+Zero Depreciation – Dependency
+
+Page 2 C) Add-Ons – Item 1
+
+“… on approved OD claims; unlimited claims”No approved OD. Not applicable.
+
+11 Windscreen Waiver Scope
+
+Page 2 C) Add-Ons – Item 10
+
+“First windscreen claim excess reduced to AED 0 if repaired”
+
+Not a windscreen-only claim.
+
+12
+
+Seating Capacity (Context)
+
+Page 1 A) Policy Schedule – Table, Row 10 “Seating: 7 (incl. driver)”
+
+Occupancy within capacity. (No breach)
+
+Note: Page numbers are based on the current layout of the issued policy PDF. If reflowed/reprinted, clause IDs
+
+(e.g., A.Row5, C.Item3, F.Bullet3) remain authoritative.
+
+

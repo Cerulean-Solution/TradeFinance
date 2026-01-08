@@ -1,5 +1,5 @@
 import pyodbc
-from configures.config import Config
+from configures.config import Config, OCR_Config
 
 def get_connection():
     conn_str = (
@@ -25,18 +25,19 @@ def fetch_all(query: str, params: tuple = ()):
     finally:
         conn.close()
 
-
-
-
-
 def get_connection_OCR():
     conn_str = (
-         f"DRIVER={Config.SQL_DRIVER};"
-        f"SERVER={Config.SQL_SERVER};"
-        f"DATABASE={Config.DB_DATABASE};"
-        f"UID={Config.SQL_USERNAME};"
-        f"PWD={Config.SQL_PASSWORD};"
+         f"DRIVER={OCR_Config.SQL_DRIVER};"
+        f"SERVER={OCR_Config.SQL_SERVER};"
+        f"DATABASE={OCR_Config.DB_DATABASE};"
+        f"UID={OCR_Config.SQL_USERNAME};"
+        f"PWD={OCR_Config.SQL_PASSWORD};"
         "TrustServerCertificate=yes;"
     )
+    
+    print(f"[OCR DB] Connecting to database: {OCR_Config.DB_DATABASE} on server: {OCR_Config.SQL_SERVER}")
+
     return pyodbc.connect(conn_str)
+
+
        

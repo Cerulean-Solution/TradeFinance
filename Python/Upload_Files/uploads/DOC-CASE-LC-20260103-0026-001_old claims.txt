@@ -1,0 +1,518 @@
+from fastapi import APIRouter, UploadFile, Form, File, HTTPException, Depends
+from sqlalchemy.orm import Session
+from typing import List, Optional, Any
+import json
+import logging
+from fastapi.responses import JSONResponse
+import os 
+import io
+from dotenv import load_dotenv
+import base64
+import re  # Added for regex cleaning
+from langchain_openai import AzureChatOpenAI
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.output_parsers import JsonOutputParser
+from langchain_core.messages import HumanMessage
+import aiofiles
+from azure.ai.documentintelligence import DocumentIntelligenceClient
+from azure.ai.documentintelligence.models import AnalyzeResult, AnalyzeDocumentRequest
+from azure.core.credentials import AzureKeyCredential
+from azure.core.exceptions import ResourceNotFoundError, HttpResponseError
+import magic
+from fastapi.middleware.cors import CORSMiddleware
+from sqlalchemy import create_engine, func
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker, Session
+
+from models import Claim
+from database import get_db, MAX_FILE_SIZE, MAX_DAMAGED_PHOTOS, engine
+from azure_clients import document_intelligence_client, azure_openai_client  # Added import for clients
+
+router = APIRouter(prefix="/claims", tags=["Claims"])
+logger = logging.getLogger(__name__)
+parser = JsonOutputParser()
+# Define SUPPORTED_FILE_TYPES if not defined elsewhere
+SUPPORTED_FILE_TYPES = ["application/pdf", "image/jpeg", "image/png", "image/tiff"]
+
+def generate_claim_table_rows(analysis_json: Any, extracted_data: dict, claim_type: str) -> list:
+    """
+    Converts extracted data and analysis JSON into a list of dicts representing table rows.
+    """
+    rows = []
+    if not isinstance(analysis_json, dict):
+        logger.error(f"analysis_json is not a dict: {type(analysis_json)} - {analysis_json}")
+        analysis_json = {
+            "policy_suggestion": "Unknown",
+            "estimated_claim": "Unknown",
+            "claim_details": {"Description": "Analysis failed", "Date of Loss": "Unknown"},
+            "policy_details": {"Policy Number": "Unknown", "Holder": "Unknown"}
+        }
+
+    policy_details = analysis_json.get("policy_details", {})
+    policy_number = policy_details.get("Policy Number", "Unknown") if isinstance(policy_details, dict) else "Unknown"
+    claim_details = analysis_json.get("claim_details", {})
+    date_of_loss = claim_details.get("Date of Loss", "Unknown") if isinstance(claim_details, dict) else "Unknown"
+    description = claim_details if isinstance(claim_details, str) else claim_details.get("Description", "See summary") if isinstance(claim_details, dict) else "See summary"
+    estimated_loss = analysis_json.get("estimated_claim", "Unknown")
+
+    total_loss = "Yes" if isinstance(description, str) and "total loss" in description.lower() else "No"
+    ncb = "Unknown"
+    status = "Open"
+
+    rows.append({
+        "Claim ID/Policy #": policy_number,
+        "Date of Loss": date_of_loss,
+        "Type of Claim": claim_type,
+        "Description": description,
+        "Estimated Loss Amount": estimated_loss,
+        "Total Loss": total_loss,
+        "No Claim Bonus": ncb,
+        "Status": status
+    })
+
+    damaged_photos = extracted_data.get("damaged_photos", {}).get("summaries", [])
+    for i, photo_summary in enumerate(damaged_photos, 1):
+        rows.append({
+            "Claim ID/Policy #": f"{policy_number}-D{i}",
+            "Date of Loss": date_of_loss,
+            "Type of Claim": f"{claim_type} - Damage Photo",
+            "Description": photo_summary[:100] + "..." if len(photo_summary) > 100 else photo_summary,
+            "Estimated Loss Amount": estimated_loss,
+            "Total Loss": "No",
+            "No Claim Bonus": ncb,
+            "Status": status
+        })
+
+    return rows[:10]
+
+@router.post("/get_claims/")
+async def get_claims(request: dict, db: Session = Depends(get_db)):
+    policy_number = request.get("policy_number")
+    if not policy_number:
+        raise HTTPException(status_code=422, detail="Policy number required")
+    
+    claims = db.query(Claim).filter(Claim.policy_number == policy_number).all()
+    return [{
+        "date": c.created_at.isoformat(),
+        "policy_number": c.policy_number,
+        "claim_type": c.claim_type,
+        "amount_claimed": c.amount_claimed or "Unknown",
+        "amount_issued": c.amount_issued or "Pending",
+        "estimated_loss": c.estimated_loss or "Unknown",
+        "total_loss": c.total_loss or "No",
+        "claims_report": c.claims_report or ""  
+
+    } for c in claims]
+
+@router.post("/submit_claim/")
+async def submit_claim(
+    policy_number: str = Form(...),
+    customer_name: str = Form(...),
+    vehicle_number: str = Form(...),
+    claim_type: str = Form(...),
+    emirates_id: Optional[UploadFile] = File(None),
+    license: UploadFile = File(...),
+    vehicle_registration: UploadFile = File(...),
+    claim_form: UploadFile = File(...),
+    policy_document: UploadFile = File(...),
+    police_report: UploadFile = File(...),
+    damaged_photos:List[UploadFile] = File(default=[]),
+    db: Session = Depends(get_db)
+):
+    try:
+        # Validate number of damaged photos
+        if len(damaged_photos) > MAX_DAMAGED_PHOTOS:
+            raise HTTPException(status_code=422, detail=f"Maximum {MAX_DAMAGED_PHOTOS} damaged photos allowed")
+
+        # Validate file sizes
+        files_to_validate = [f for f in [emirates_id, license, vehicle_registration, claim_form, policy_document, police_report] if f] + damaged_photos
+        for file in files_to_validate:
+            content = await file.read()
+            if len(content) > MAX_FILE_SIZE:
+                raise HTTPException(status_code=422, detail=f"File {file.filename} exceeds 10MB limit")
+            await file.seek(0)
+
+        extracted_data = {}
+
+        # Define single-file documents
+        documents = [
+            ("emirates_id", emirates_id),
+            ("license", license),
+            ("vehicle_registration", vehicle_registration),
+            ("claim_form", claim_form),
+            ("policy_document", policy_document),
+            ("police_report", police_report)
+        ]
+        documents = [d for d in documents if d[1]]  # Filter None
+
+        # Process single-file documents with Azure Document Intelligence
+        for doc_type, file in documents:
+            logger.info(f"Processing {doc_type}: {file.filename}")
+            async with aiofiles.tempfile.NamedTemporaryFile(suffix=f".{file.filename.split('.')[-1]}", delete=False) as temp_file:
+                content = await file.read()
+                await temp_file.write(content)
+                temp_path = temp_file.name
+
+            mime = magic.Magic(mime=True)
+            mime_type = mime.from_file(temp_path)
+            if mime_type not in SUPPORTED_FILE_TYPES:
+                logger.error(f"Unsupported file type for {doc_type}: {mime_type}")
+                extracted_data[doc_type] = {
+                    "extracted_details": {"error": f"Unsupported file type: {mime_type}"},
+                    "summary": "Failed to process document"
+                }
+                os.unlink(temp_path)
+                continue
+
+            try:
+                with open(temp_path, "rb") as f:
+                    document_content = f.read()
+
+                # Try prebuilt-document, fall back to prebuilt-read
+                model_id = "prebuilt-document"
+                try:
+                    poller = document_intelligence_client.begin_analyze_document(
+                        model_id=model_id,
+                        body=io.BytesIO(document_content)
+                    )
+                    result: AnalyzeResult = poller.result()
+                except HttpResponseError as e:  # Broader catch; ResourceNotFoundError is a subclass
+                    if e.status_code == 404:  # Model not found
+                        logger.warning(f"Model {model_id} not found for {doc_type}, falling back to prebuilt-read")
+                        model_id = "prebuilt-read"
+                        poller = document_intelligence_client.begin_analyze_document(
+                            model_id=model_id,
+                            body=io.BytesIO(document_content)
+                        )
+                        result: AnalyzeResult = poller.result()
+                    else:
+                        raise  # Re-raise other HTTP errors
+
+                extracted_details = {}
+                if result.key_value_pairs:
+                    for kv_pair in result.key_value_pairs:
+                        if kv_pair.key and kv_pair.value:
+                            extracted_details[kv_pair.key.content] = kv_pair.value.content
+                else:
+                    extracted_details["raw_text"] = result.content
+
+                summary = result.content[:200] + "..." if len(result.content) > 200 else result.content
+                extracted_data[doc_type] = {
+                    "extracted_details": extracted_details,
+                    "summary": summary
+                }
+                logger.info(f"Document Intelligence processed {doc_type} successfully with model {model_id}")
+            except (HttpResponseError, ResourceNotFoundError) as e:  # Combined catch for fallback failures
+                logger.error(f"Document Intelligence failed for {doc_type}: {str(e)}")
+                extracted_data[doc_type] = {
+                    "extracted_details": {"error": f"Processing failed: {str(e)}"},
+                    "summary": "Failed to process document"
+                }
+            except Exception as e:
+                logger.error(f"Unexpected error for {doc_type}: {str(e)}")
+                extracted_data[doc_type] = {
+                    "extracted_details": {"error": f"Unexpected error: {str(e)}"},
+                    "summary": "Failed to process document"
+                }
+            finally:
+                os.unlink(temp_path)
+
+        # Process damaged photos with Azure OpenAI vision
+        photo_summaries = []
+        for photo in damaged_photos:
+            logger.info(f"Processing damaged photo: {photo.filename}")
+            async with aiofiles.tempfile.NamedTemporaryFile(suffix=f".{photo.filename.split('.')[-1]}", delete=False) as temp_file:
+                content = await photo.read()
+                await temp_file.write(content)
+                temp_path = temp_file.name
+
+            mime = magic.Magic(mime=True)
+            mime_type = mime.from_file(temp_path)
+            if mime_type not in ["image/jpeg", "image/png"]:
+                logger.error(f"Unsupported file type for damaged photo {photo.filename}: {mime_type}")
+                photo_summaries.append(f"Unsupported file type: {mime_type}")
+                os.unlink(temp_path)
+                continue
+
+            try:
+                with open(temp_path, "rb") as f:
+                    base64_image = base64.b64encode(f.read()).decode('utf-8')
+
+                vision_prompt = (
+                    "You are an insurance damage assessor. Describe the vehicle damage visible in this image in detail, "
+                    "including affected parts, severity (minor/moderate/severe), and estimated repair needs. "
+                    "If no damage is visible, say 'No visible damage'."
+                )
+
+                messages = [
+                    HumanMessage(
+                        content=[
+                            {"type": "text", "text": vision_prompt},
+                            {"type": "image_url", "image_url": {"url": f"data:{mime_type};base64,{base64_image}"}}
+                        ]
+                    )
+                ]
+
+                response = azure_openai_client.invoke(messages)
+                summary = response.content.strip()
+                photo_summaries.append(summary)
+                logger.info(f"Vision analysis for damaged photo: {photo.filename} - Summary: {summary[:100]}...")
+            except Exception as e:
+                logger.error(f"Vision analysis failed for damaged photo {photo.filename}: {str(e)}")
+                photo_summaries.append(f"Image analysis failed: {str(e)}")
+            finally:
+                os.unlink(temp_path)
+
+        extracted_data["damaged_photos"] = {"summaries": photo_summaries}
+        # Prepare user entered data
+        user_data = {
+            "policy_number": policy_number,
+            "customer_name": customer_name,
+            "vehicle_number": vehicle_number,
+            "claim_type": claim_type
+        }
+
+        # Analyze extracted data with Azure OpenAI
+        analysis_prompt = """
+        You are an insurance claims analyst. Analyze the extracted document details: {extracted_data}
+        User entered data: {user_data}
+
+        Instructions:
+        - Analyse the policy form and Calcualte the estimate claim amount from the data given.
+        - Provide claim details (e.g., date, description) or "Insufficient data" if missing.
+        - Provide policy details (e.g., policy number, holder) or "Insufficient data" if missing.
+        - If data is incomplete, suggest manual review and use placeholders.
+        - Output must be valid JSON, enclosed in ```json
+        - Do not use indentation or newlines inside the JSON object that could cause parsing errors.
+
+        ```json{{"policy_suggestion": "<claim_type>","estimated_claim": "<amount or Unknown>","claim_details": {{"Date of Loss": "<date or Unknown>","Description": "<details or Insufficient data>"}},"policy_details": {{"Policy Number": "<number or Unknown>","Holder": "<name or Unknown>"}}}}```
+        """.format(extracted_data=json.dumps(extracted_data, ensure_ascii=False),
+            user_data=json.dumps(user_data, ensure_ascii=False))
+
+        logger.info("Analyzing extracted data")
+        try:
+            messages = [HumanMessage(content=analysis_prompt)]
+            response = azure_openai_client.invoke(messages)
+            response_content = response.content.strip()
+            response_content = re.sub(r'^\s*```json\s*|\s*```\s*$', '', response_content).strip()
+            response_content = re.sub(r'^\s+', '', response_content)
+            response_content = response_content.replace('\n', '').replace('  ', '')
+            analysis = json.loads(response_content)
+        except json.JSONDecodeError as parse_error:
+            logger.error(f"JSON parsing failed: {str(parse_error)}")
+            analysis = {
+                "policy_suggestion": "Unknown",
+                "estimated_claim": "Unknown",
+                "claim_details": {"Date of Loss": "Unknown", "Description": "Parsing failed"},
+                "policy_details": {"Policy Number": "Unknown", "Holder": "Unknown"}
+            }
+        except Exception as e:
+            logger.error(f"Analysis failed: {str(e)}")
+            raise HTTPException(status_code=500, detail=f"Analysis error: {str(e)}")
+
+        # Generate claim table rows (simple implementation)
+        claim_table_rows = [
+            {
+                "claim_id_policy": analysis["policy_details"].get("Policy Number", "Unknown"),
+                "date_of_loss": analysis["claim_details"].get("Date of Loss", "Unknown"),
+                "type_of_claim": claim_type,
+                "description": analysis["claim_details"].get("Description", "Insufficient data"),
+                "estimated_loss_amount": analysis["estimated_claim"],
+                "total_loss": "Yes" if "total loss" in str(analysis).lower() else "No",
+                "no_claim_bonus": "Unknown",
+                "status": "Open"
+            }
+        ]
+
+        # Generate report with Azure OpenAI
+        report_prompt = """
+       <prompt>
+    <description>
+        You are an expert insurance claims reporting assistant. Your task is to analyze structured insurance claim data and produce a professional claim report.
+    </description>
+    
+    <input_variables>
+        <variable name="analysis_json">
+            The JSON object containing AI-extracted insights, discrepancies, and claim document analysis.
+        </variable>
+        <variable name="claim_table_rows">
+            A list of claim records with fields like Claim ID, Policy Number, Date of Loss, Type of Claim, Brief Description, Estimated Loss Amount, and Status.
+        </variable>
+    </input_variables>
+
+    <task>
+        Generate a comprehensive, precise, and actionable claim report strictly in readable format. Follow these instructions:
+    </task>
+
+    <report_sections>
+        <section id="metadata">
+            <title>Report Metadata</title>
+            <instructions>
+                Include a Policy Suggestion summary based on the analysis.
+                Include Estimated Claim Value if applicable.
+                Include Claim Details and Policy Details extracted from the documents.
+            </instructions>
+        </section>
+
+        <section id="executive_summary">
+            <title>Executive Summary</title>
+            <instructions>
+                Provide a 1-2 paragraph overview highlighting:
+                - Total financial exposure
+                - Key risk factors
+                - Patterns in claim data (e.g., frequent claim types, high-loss claims)
+                Mention total loss or NCB (No Claims Bonus) eligibility impacts.
+            </instructions>
+        </section>
+
+        <section id="claim_details_table">
+            <title>Claim Details Table</title>
+            <instructions>
+                Construct a readable table using claim_table_rows input.
+                Include 5-10 rows only; highlight total loss claims clearly.
+                Columns: Claim ID/Policy # | Date of Loss | Type of Claim | Description (brief) | Estimated Loss Amount | Status
+                Ensure data consistency with extracted document insights (analysis_json).
+            </instructions>
+        </section>
+
+        <section id="risk_analysis">
+            <title>Risk Analysis</title>
+            <instructions>
+                Provide 3-5 bullet points analyzing:
+                - Key risk drivers
+                - Trends in claim frequency or severity
+                - Patterns in total loss or recurring issues
+                - NCB impact considerations
+                Use numerical data where available.
+            </instructions>
+        </section>
+
+        <section id="underwriting_implications">
+            <title>Underwriting Implications</title>
+            <instructions>
+                List actionable recommendations with rationale:
+                - Policy adjustments
+                - Coverage recommendations
+                - NCB adjustments
+                - Next steps for underwriting follow-up
+            </instructions>
+        </section>
+
+        <section id="appendices">
+            <title>Appendices</title>
+            <instructions>
+                Include excerpts from raw extracted data or charts where relevant.
+                Ensure raw data excerpts support the insights presented.
+            </instructions>
+        </section>
+
+        <section id="output_requirements">
+            <title>Output Requirements</title>
+            <instructions>
+                - Avoid unnecessary commentary; focus on concise, factual, and actionable information.
+                - Highlight critical discrepancies or high-loss claims clearly.
+                - Ensure report integrates insights from analysis_json and claim_table_rows accurately.
+            </instructions>
+        </section>
+    </report_sections>
+</prompt>
+
+        """.format(
+            analysis_json=json.dumps(analysis, ensure_ascii=False),
+            claim_table_rows=json.dumps(claim_table_rows, ensure_ascii=False)
+        )
+
+        try:
+            messages = [HumanMessage(content=report_prompt)]
+            response = azure_openai_client.invoke(messages)
+            report_content = response.content
+        except Exception as e:
+            logger.error(f"Report generation failed: {str(e)}")
+            report_content = """
+           <ClaimReport>
+    <PolicySuggestion>UNKNOWN</PolicySuggestion>
+    <EstimatedClaim>UNKNOWN</EstimatedClaim>
+    <ClaimDetails>Report generation failed</ClaimDetails>
+    <PolicyDetails>UNKNOWN</PolicyDetails>
+
+    <ExecutiveSummary>
+        <Point>Automated report generation encountered a processing error.</Point>
+        <Point>Unable to summarize financial exposure, claim patterns, or risk implications.</Point>
+        <Point>Manual review of the claim documents is required to ensure completeness and accuracy.</Point>
+    </ExecutiveSummary>
+
+    <ClaimDetailsTable>
+        <Row>
+            <ClaimID>UNKNOWN</ClaimID>
+            <PolicyNumber>UNKNOWN</PolicyNumber>
+            <DateOfLoss>UNKNOWN</DateOfLoss>
+            <TypeOfClaim>UNKNOWN</TypeOfClaim>
+            <Description>Report generation failed. Review documents manually.</Description>
+            <EstimatedLossAmount>UNKNOWN</EstimatedLossAmount>
+            <Status>PENDING</Status>
+        </Row>
+    </ClaimDetailsTable>
+
+    <RiskAnalysis>
+        <Point>Risk factors could not be evaluated due to the processing error.</Point>
+        <Point>Review claim data for potential high-loss items, total loss, or recurring patterns.</Point>
+    </RiskAnalysis>
+
+    <UnderwritingImplications>
+        <Point>Manual review required to determine policy adjustments, coverage recommendations, and NCB impact.</Point>
+        <Point>Ensure all critical claim fields are verified and reconciled with source documents.</Point>
+    </UnderwritingImplications>
+
+    <NotesForReviewers>
+        <Instruction>Check the uploaded claim documents (Emirates ID, License, Vehicle Registration, Claim Form, Policy, Police Report, Damaged Photos).</Instruction>
+        <Instruction>Confirm claim details against policy terms and previous claim history.</Instruction>
+        <Instruction>Escalate high-loss or total-loss claims to senior underwriter.</Instruction>
+    </NotesForReviewers>
+</ClaimReport>
+
+            """
+
+        # Parse estimated claim from report_content
+        estimated_claim_from_report = "Unknown"
+        for line in report_content.splitlines():
+            if line.startswith("Estimated Claim:"):
+                estimated_claim_from_report = line.split(":", 1)[1].strip()
+                break
+
+        # Save to DB
+        new_claim = Claim(
+            policy_number=policy_number,
+            date_of_loss=analysis["claim_details"].get("Date of Loss"),
+            description=analysis["claim_details"].get("Description"),
+            estimated_loss=analysis["estimated_claim"],
+            total_loss="Yes" if "total loss" in str(analysis).lower() else "No",
+            analysis_json=json.dumps(analysis),
+            claims_report=report_content,
+            emirates_id_text=extracted_data.get("emirates_id", {}).get("summary"),
+            license_text=extracted_data.get("license", {}).get("summary"),
+            vehicle_registration_text=extracted_data.get("vehicle_registration", {}).get("summary"),
+            claim_form_text=extracted_data.get("claim_form", {}).get("summary"),
+            policy_document_text=extracted_data.get("policy_document", {}).get("summary"),
+            police_report_text=extracted_data.get("police_report", {}).get("summary"),
+            damaged_photos_summaries=json.dumps(photo_summaries),
+            claim_type=claim_type,
+            amount_issued=estimated_claim_from_report
+            
+        )
+        db.add(new_claim)
+        db.commit()
+        db.refresh(new_claim)
+
+        return {
+            "status": "success",
+            "message": "Claim submitted and processed successfully.",
+            "analysis": analysis,
+            "claims_report": report_content,
+            "claim_id": new_claim.id
+        }
+    except HTTPException as http_err:
+        raise http_err
+    except Exception as e:
+        db.rollback()
+        logger.error(f"Error submitting claim: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Error submitting claim: {str(e)}")

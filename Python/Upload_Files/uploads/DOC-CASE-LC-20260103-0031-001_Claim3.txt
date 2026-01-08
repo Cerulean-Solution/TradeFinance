@@ -1,0 +1,120 @@
+Converted from: Claim3_Dubai_Theft_RTI.pdf
+Claim 3: Dubai Theft & RTI Request — Part 1: Motor
+Accident Notification & Claim Form (Filled)
+
+Insurer
+
+Policy No.
+
+Insured
+
+Vehicle
+
+Crescent General Insurance Co. Ltd.
+
+CGIC/MC/2025/INN/000187
+
+Ahmed Mansori
+
+Toyota Innova Crysta 2.4 ZX AT (MY 2025) (cid:127) VIN: MHKXYZ1234J567890 (cid:127) Reg: DUBAI – P 48765
+
+Policy Period
+
+08-Oct-2025 to 07-Oct-2026
+
+A. Loss Details
+
+Loss Date & Time
+
+20-Oct-2026, 03:30 (local)
+
+Loss Location
+
+Nature of Loss
+
+Keys
+
+Street parking, Al Karama, Dubai, UAE
+
+Vehicle theft overnight; not recovered as of report
+
+Spare key unaccounted; primary key with insured; suspected key cloning
+
+B. Usage Declaration
+
+Declared Use
+
+Private
+
+Actual Use in Last Month
+
+Occasional paid rental to acquaintances (cash-based)
+
+C. Notifications & Reports
+
+Police
+
+Insurer Notice
+
+Dubai Police FIR No. DP/2026/440112
+
+20-Oct-2026 (same day)
+
+D. Covers Claimed
+
+Covers Claimed
+
+Theft (OD), Return to Invoice (RTI)
+
+E. Documents Submitted
+
+Documents
+
+FIR, both keys (spare reported missing then found later), purchase invoice copy, registration card, rental messages screenshots
+
+
+Claim 3: Dubai Theft & RTI Request — Part 2:
+Discrepancy & Exceedance Report (Against Policy)
+References map to the issued policy PDF: page number (approx.), section/paragraph, and the exact line/snippet.
+
+Topic
+
+Page
+
+Paragraph/Section
+
+Exact Line / Snippet
+
+Claim Deviation
+
+Policy Period / Timing vs RTI Window
+
+Page 1 & 2A) Schedule (IDV) & C) Add-Ons – Item 2 (RTI)
+
+“RTI … within 12 months of first registration”Loss on 20-Oct-2026. If first registration was on 08-Oct-2025, RTI window (12 months) likely expired ﬁ RTI not applicable.
+
+Usage Exclusion (Rental/Commercial)
+
+Page 3 D) Excesses & Special Conditions – Bullet 4
+
+“Ride-hailing/commercial use: Excluded unless specifically endorsed”
+
+Vehicle used for paid rental ﬁ commercial use outside declared private usage; theft claim may be declined for misrepresentation/breach.
+
+Keys/Reasonable CarePage 3
+
+F) Warranties & Duties – Bullet 1
+
+“Reasonable Care: Maintain … roadworthy …”Spare key unaccounted for; potential breach of care/keys custody. May lead to investigation or deduction.
+
+Note: If the policy is re-paginated, use clause IDs (e.g., A.Row5, C.Item3, F.Bullet3) as authoritative locators.
+
+#
+
+1
+
+2
+
+3
+
+

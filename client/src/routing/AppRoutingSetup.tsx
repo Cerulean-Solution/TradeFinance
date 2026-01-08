@@ -23,6 +23,13 @@ import FourtySixA from '@/pages/46A/FourtySixA';
 import DocumentDetails from '@/pages/46A/Documentdetails';
 import AccountSettingsSidebarPages from '@/pages/Trade_Based_ML/AccountSettingsSidebarPage';
 import GoodsMatching from '@/pages/goodsMatcher/GoodsMatching';
+import Dashboard from '../pages/OCR/OCR/Dashboard.tsx';
+import Upload from "../pages/OCR/OCR/Upload.tsx";
+import Sessions from "../pages/OCR/OCR/Sessions.tsx";
+import SubControlCenter from "../pages/OCR/OCR/SCC.tsx";
+import SessionDetailNew from "../pages/OCR/OCR/SessionDetailNew.tsx";
+import MagicBox from '../pages/OCR/OCR/Magic_box.tsx';
+
 
 const AppRoutingSetup = (): ReactElement => {
   return (
@@ -48,6 +55,12 @@ const AppRoutingSetup = (): ReactElement => {
             <Route path='/Form/LcForm' element={<LcForm/>} ></Route>
             <Route path='/Billing' element={<Billing/>} ></Route>
             <Route path='/MTconverter' element={<MTConverter/>} ></Route>
+             {/* OCR Routes */}
+            <Route path="/tf_genie/discrepancy/dashboard" element={<Dashboard />} />
+            <Route path="/tf_genie/discrepancy/ocr-factory" element={<Sessions />} />
+            <Route path="/tf_genie/discrepancy/create-session" element={<Upload />} />
+            <Route path="/tf_genie/discrepancy/sub-control-center" element={<SubControlCenter />} />
+            <Route path="/tf_genie/discrepancy/ocr-factory/:sessionId" element={<SessionDetailNew />} />
             {/* ------------------ */}
             {/* sanction */}
             {/* ------------------ */}
@@ -63,6 +76,9 @@ const AppRoutingSetup = (): ReactElement => {
 
             <Route path="/TBML" element={<AccountSettingsSidebarPages/>}></Route>
             <Route path ="/GoodsMatcher" element ={<GoodsMatching/>}></Route>
+
+            {/* Magic-Box */}
+            <Route path="/magic-box" element={<MagicBox />} />
 
           </Route>
         </Route>

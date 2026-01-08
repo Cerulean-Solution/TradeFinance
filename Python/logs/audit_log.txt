@@ -2351,3 +2351,58 @@
     Status: SUCCESS
     Message: Connected to tf_genie
 --------------------------------------------------------------------------------
+[2026-01-08 13:48:25.019] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 13:48:25.035] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 13:48:32.728] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 13:48:32.732] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 13:49:38.412] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 13:49:38.417] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 17:12:19.966] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 17:12:19.970] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 17:12:23.481] [ACTIVITY] Search Initiated
+    Details: hydrogen fluoride chemical compound used in industrial processing
+--------------------------------------------------------------------------------
+[2026-01-08 17:12:23.509] [SQL] Query Executed
+    Details: Query: GetExportControlItems
+    Result Count: 5045
+--------------------------------------------------------------------------------
+[2026-01-08 17:12:40.683] [MATCH_RUN] Matching Operation
+    Details: Run ID: 1
+    Input: hydrogen fluoride chemical compound used in industrial processing
+    Matches Found: 59
+--------------------------------------------------------------------------------
+[2026-01-08 17:12:40.693] [ERROR] Save Activity
+    Details: Error: ('23000', "[23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Cannot insert explicit value for identity column in table 'tf_sanctions_activity' when IDENTITY_INSERT is set to OFF. (544) (SQLParamData)")
+--------------------------------------------------------------------------------

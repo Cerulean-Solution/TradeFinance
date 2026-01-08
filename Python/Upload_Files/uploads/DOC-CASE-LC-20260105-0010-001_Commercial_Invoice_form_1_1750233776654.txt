@@ -1,0 +1,13 @@
+COMMERCIAL INVOICE
+    
+Form ID: form_1_1750233776654
+Confidence: 95.0%
+Pages: 1, 2
+
+EXTRACTED FIELDS:
+Invoice Number: INV-2025-001
+Invoice Date: 2025-06-18
+Total Amount: USD 25,450.00
+Seller: ABC Trading Co Ltd
+
+Generated on: 2025-06-18T08:03:16.430Z

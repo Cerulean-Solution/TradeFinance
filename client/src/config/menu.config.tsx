@@ -71,13 +71,31 @@ export const MENU_SIDEBAR: TMenuConfig = [
     icon: 'profile-circle',
     children: [
       {
+        id: 'ocr_factory',
         title: 'OCR Factory',
-        path: '/admin/user',
-        permission: 'AccessLogs'
+        permission: 'AccessLogs',
+        icon: 'briefcase',
+        children: [
+          {
+            title: 'Dashboard',
+            path: '/tf_genie/discrepancy/dashboard',
+            permission: 'AccessLogs'
+          },
+          {
+            title: 'Create Sessions',
+            path: '/tf_genie/discrepancy/create-session',
+            permission: 'AccessLogs'
+          },
+          {
+            title: 'Sessions',
+            path: '/tf_genie/discrepancy/ocr-factory',
+            permission: 'AccessLogs'
+          }
+        ]
       },
       {
         title: 'Magic BOX',
-        path: '/admin/RoleManagement',
+        path: '/magic-box',
         permission: 'AccessLogs'
       },
 
@@ -195,8 +213,8 @@ export const MENU_SIDEBAR: TMenuConfig = [
     ]
   },
   {
-    id: 'letter_of_Certificate_specialize',
-    title: 'Letter of Certificate Specialize',
+    id: 'letter_of_Cerdit_specialize',
+    title: 'Letter of Cerdit Specialize',
     asset_key: 'LC_Validation',
     icon: 'questionnaire-tablet',
     children: [
@@ -457,7 +475,7 @@ export const MENU_SIDEBAR: TMenuConfig = [
           },
         ]
       },
-       {
+      {
         id: 'Shipping Guarantee',
         title: 'Shipping Guarantee',
         icon: 'element-11',
