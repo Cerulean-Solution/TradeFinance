@@ -11,22 +11,22 @@ const SidebarHeader = forwardRef<HTMLDivElement, any>((props, ref) => {
     <Fragment>
       <Link to="/" className="dark:hidden">
         <img
-          src={toAbsoluteUrl('/media/app/Trade_Genie.png')}
-          className="default-logo min-h-[12px] max-w-none"
+          src={toAbsoluteUrl('/media/app/default_logo.png')}
+          className="default-logo"
         />
         <img
-          src={toAbsoluteUrl('/media/app/Trade_Genie.png')}
-          className="small-logo min-h-[12px] max-w-none"
+          src={toAbsoluteUrl('/media/app/mini_logo.png')}
+          className="small-logo min-h-[60px] max-w-[60px]"
         />
       </Link>
       <Link to="/" className="hidden dark:block">
         <img
-          src={toAbsoluteUrl('/media/app/default-logo-dark.svg')}
-          className="default-logo min-h-[12px] max-w-none"
+          src={toAbsoluteUrl('/media/app/default_logo.png')}
+          className="default-logo"
         />
         <img
-          src={toAbsoluteUrl('/media/app/Trade_Genie.png')}
-          className="small-logo min-h-[12px] max-w-none"
+          src={toAbsoluteUrl('/media/app/mini_logo.png')}
+          className="small-logo min-h-[60px] max-w-[60px]"
         />
       </Link>
     </Fragment>
@@ -39,8 +39,8 @@ const SidebarHeader = forwardRef<HTMLDivElement, any>((props, ref) => {
         className="default-logo min-h-[22px] max-w-none"
       />
       <img
-        src={toAbsoluteUrl('/media/app/Trade_Genie.png')}
-        className="small-logo min-h-[22px] max-w-none"
+        src={toAbsoluteUrl('/media/app/mini_logo.png')}
+        className="small-logo min-h-[60px] max-w-[60px]"
       />
     </Link>
   );

@@ -19,8 +19,8 @@ const HeaderLogo = () => {
     <div className="flex gap-1 lg:hidden items-center -ms-1">
       <Link to="/" className="shrink-0">
         <img
-          src={toAbsoluteUrl('/media/app/Trade_Genie.png')}
-          className="max-h-[25px] w-full"
+          src={toAbsoluteUrl('/media/app/mini_logo.png')}
+          className="max-h-[60px] w-full"
           alt="Trade_Genie"
         />
       </Link>

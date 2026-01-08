@@ -1931,3 +1931,423 @@
     Status: SUCCESS
     Message: Connected to tf_genie
 --------------------------------------------------------------------------------
+[2026-01-08 12:14:52.830] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:14:52.837] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:15:06.030] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:15:06.034] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:15:23.967] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:15:23.970] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:15:35.875] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:15:35.878] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:15:40.324] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:15:41.175] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:15:41.178] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:15:42.328] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:15:42.335] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:15:42.918] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:15:42.922] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:15:50.325] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:15:51.207] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:15:51.210] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:15:59.324] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:16:00.207] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:16:00.211] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:16:18.346] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:16:19.222] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:16:19.227] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:16:20.859] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:16:20.861] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:16:29.327] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:16:30.412] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:16:30.416] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:16:31.298] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:16:31.302] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:16:31.828] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:16:31.832] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:16:47.316] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:16:47.905] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:16:47.907] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:16:51.319] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:16:52.221] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:16:52.224] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:16:59.853] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:16:59.856] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:17:34.987] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:17:34.990] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:17:47.216] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:17:47.221] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:17:52.322] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:17:53.263] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:17:53.267] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:17:57.319] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:17:57.888] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:17:57.892] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:18:06.943] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:18:06.945] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:18:10.315] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:18:11.200] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:18:11.206] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:18:16.319] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:18:17.199] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:18:17.201] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:18:20.316] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:18:20.889] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:18:20.892] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:18:22.317] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:18:22.320] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:18:22.907] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:18:22.910] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:18:27.309] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:18:27.881] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:18:27.884] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:18:30.330] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:18:30.333] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:18:31.217] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:18:31.219] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:18:46.054] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:18:46.059] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:18:46.881] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:18:46.884] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:18:53.309] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:18:54.215] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:18:54.219] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:19:05.240] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:19:05.246] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:19:05.781] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-08 12:19:05.784] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------

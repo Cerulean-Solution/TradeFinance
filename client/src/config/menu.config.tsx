@@ -44,7 +44,7 @@ export const MENU_SIDEBAR: TMenuConfig = [
   {
     id: 'admin',
     title: 'Admin Management',
-    asset_key: 'Administration', 
+    asset_key: 'Administration',
     icon: 'profile-circle',
     children: [
       {
@@ -65,134 +65,69 @@ export const MENU_SIDEBAR: TMenuConfig = [
     ]
   },
   {
-    id: 'LC Validation',
-    title: 'LC Validation',
-    asset_key: 'LC_Validation', 
-    icon: 'questionnaire-tablet',
+    id: 'Document_management_system',
+    title: 'Document Management System',
+    asset_key: 'Administration',
+    icon: 'profile-circle',
     children: [
       {
-        title: 'Find Discrepancy',
-        path: '/Form/LcForm',
+        title: 'OCR Factory',
+        path: '/admin/user',
+        permission: 'AccessLogs'
+      },
+      {
+        title: 'Magic BOX',
+        path: '/admin/RoleManagement',
+        permission: 'AccessLogs'
+      },
+
+    ]
+  },
+  {
+    id: 'Prompt_management',
+    title: 'Prompt Management',
+    asset_key: 'Administration',
+    icon: 'profile-circle',
+    children: [
+      {
+        title: 'Prompt Management',
+        path: '/framework/prompt-management',
         permission: 'AccessLogs'
       },
     ]
   },
   {
-    id: 'ILC',
-    title: 'ILC',
-    icon: 'element-11',
-    asset_key: 'ILC',
-    children: [
-      {
-        title: 'Magic Box',
-        path: '/magic_box',
-        permission: 'AccessLogs'
-      },
-      {
-        title: 'ILC Lifecycle',
-        path: '/ILC_lifecycle',
-        permission: 'AccessLogs'
-      },
-      {
-        title: 'ILC MT Management',
-        path: '/MTconverter',
-        permission: 'AccessLogs'
-      },
-      {
-        title: 'Cross Document Check',
-        path: '/cross_doc_check',
-        permission: 'AccessLogs'
-      },
-           {
-        title: 'Amendment Verification',
-        path: '/amendment_verification',
-        permission: 'AccessLogs'
-      },
-      {
-        title: 'Sanction Check',
-        path: '/sanction',
-        permission: 'AccessLogs'
-      },
-      {
-        title: 'Do NOT Deal',
-        path: '/GoodsMatcher',
-        permission: 'AccessLogs'
-      },
-      {
-        title: 'vessel Tracking',
-        path: '/vessel_tracking',
-        permission: 'AccessLogs'
-      },
-      {
-        title: 'Discrepancy Management',
-        path: '/discrepancymanagement',
-        permission: 'AccessLogs',
-              
-      },
- 
-      {
-        title: 'Reports',
-        path: '/reports',
-        permission: 'AccessLogs'
-      }
-    ]
-  },
-   {
-    id: 'Billing',
-    title: 'Billing',
-    asset_key: 'Billing', 
-    icon: 'bill',
-    children: [
-      {
-        title: 'Billing',
-        path: '/Billing',
-        permission: 'AccessLogs'
-      },
-    ]
-  },
-  {
-    id: 'MTConverter',
-    title: 'MTConverter',
-    asset_key: 'MTConverter', 
-    icon: 'abstract-44',
-    children: [
-      {
-        title: 'MTConverter',
-        path: '/MTconverter',
-        permission: 'AccessLogs'
-      },
-    ]
-  },
-    {
-    id: '46A',
-    title: '46A Management',
-    asset_key: '46A_Management',
-    icon: 'calendar-tick',
+    id: 'Pre Issuance',
+    title: 'Pre Issuance',
+    asset_key: 'Administration',
+    icon: 'profile-circle',
     children: [
       {
         title: '46A',
         path: '/form/46A',
         permission: 'AccessLogs'
+      },
 
-  }
-],
-},
-   {
-    id: 'sanction',
-    title: 'Sanction Management', 
-    asset_key: 'Sanction_Management',
-    icon: 'shield-cross',
-    children: [
       {
-        title: 'Sanction',
+        title: 'Sanction ',
         path: '/sanction',
+        permission: 'AccessLogs'
+      },
+      {
+        title: 'DUG',
+        path: '/GoodsMatcher',
+        permission: 'AccessLogs'
+      },
+      {
+        title: 'Vessel Tracking',
+        path: '/Vessel_tracking',
         permission: 'AccessLogs'
       },
     ]
   },
-   {
+  {
     id: 'TBML',
-    title: 'TBML Management', 
+    title: 'TBML Management',
     asset_key: 'TBML_Management',
     icon: 'shield-cross',
     children: [
@@ -202,8 +137,418 @@ export const MENU_SIDEBAR: TMenuConfig = [
         permission: 'AccessLogs'
       },
     ]
-  }
-   
+  },
+  {
+    id: 'letter_of_credit',
+    title: 'Letter of Credit',
+    asset_key: 'LC_Validation',
+    icon: 'questionnaire-tablet',
+    children: [
+      {
+        id: 'ILC',
+        title: 'ILC',
+        icon: 'element-11',
+        asset_key: 'ILC',
+        children: [
+          {
+            title: 'Cross Document Check',
+            path: '/cross_doc_check',
+            permission: 'AccessLogs'
+          },
+          {
+            title: 'Amendment Verification',
+            path: '/amendment_verification',
+            permission: 'AccessLogs'
+          },
+          {
+            title: 'Discrepancy Management',
+            path: '/discrepancymanagement',
+            permission: 'AccessLogs',
+
+          },
+        ]
+      },
+      {
+        id: 'ELC',
+        title: 'ELC',
+        icon: 'element-11',
+        asset_key: 'ELC',
+        children: [
+          {
+            title: 'Cross Document Check',
+            path: '/cross_doc_check',
+            permission: 'AccessLogs'
+          },
+          {
+            title: 'Amendment Verification',
+            path: '/amendment_verification',
+            permission: 'AccessLogs'
+          },
+          {
+            title: 'Discrepancy Management',
+            path: '/discrepancymanagement',
+            permission: 'AccessLogs',
+
+          },
+        ]
+      },
+    ]
+  },
+  {
+    id: 'letter_of_Certificate_specialize',
+    title: 'Letter of Certificate Specialize',
+    asset_key: 'LC_Validation',
+    icon: 'questionnaire-tablet',
+    children: [
+      {
+        id: 'TLC',
+        title: 'TLC',
+        icon: 'element-11',
+        asset_key: 'TLC',
+        children: [
+          {
+            title: 'Cross Document Check',
+            path: '/cross_doc_check',
+            permission: 'AccessLogs'
+          },
+          {
+            title: 'Amendment Verification',
+            path: '/amendment_verification',
+            permission: 'AccessLogs'
+          },
+          {
+            title: 'Discrepancy Management',
+            path: '/discrepancymanagement',
+            permission: 'AccessLogs',
+
+          },
+        ]
+      },
+      {
+        id: 'BBLC',
+        title: 'BBLC',
+        icon: 'element-11',
+        asset_key: 'BBLC',
+        children: [
+          {
+            title: 'Cross Document Check',
+            path: '/cross_doc_check',
+            permission: 'AccessLogs'
+          },
+          {
+            title: 'Amendment Verification',
+            path: '/amendment_verification',
+            permission: 'AccessLogs'
+          },
+          {
+            title: 'Discrepancy Management',
+            path: '/discrepancymanagement',
+            permission: 'AccessLogs',
+
+          },
+        ]
+      },
+      {
+        id: 'RLC',
+        title: 'RLC',
+        icon: 'element-11',
+        asset_key: 'RLC',
+        children: [
+          {
+            title: 'Cross Document Check',
+            path: '/cross_doc_check',
+            permission: 'AccessLogs'
+          },
+          {
+            title: 'Amendment Verification',
+            path: '/amendment_verification',
+            permission: 'AccessLogs'
+          },
+          {
+            title: 'Discrepancy Management',
+            path: '/discrepancymanagement',
+            permission: 'AccessLogs',
+
+          },
+        ]
+      },
+      {
+        id: 'SBLC',
+        title: 'SBLC',
+        icon: 'element-11',
+        asset_key: 'SBLC',
+        children: [
+          {
+            title: 'Cross Document Check',
+            path: '/cross_doc_check',
+            permission: 'AccessLogs'
+          },
+          {
+            title: 'Amendment Verification',
+            path: '/amendment_verification',
+            permission: 'AccessLogs'
+          },
+          {
+            title: 'Discrepancy Management',
+            path: '/discrepancymanagement',
+            permission: 'AccessLogs',
+
+          },
+        ]
+      },
+
+    ]
+  },
+  {
+    id: 'Bill_of_collections',
+    title: 'Bill of Collections',
+    asset_key: 'LC_Validation',
+    icon: 'questionnaire-tablet',
+    children: [
+      {
+        id: 'Import_bill_of_collection',
+        title: 'Import Bill of Collection',
+        icon: 'element-11',
+        asset_key: 'TLC',
+        children: [
+          {
+            title: 'Cross Document Check',
+            path: '/cross_doc_check',
+            permission: 'AccessLogs'
+          },
+          {
+            title: 'Amendment Verification',
+            path: '/amendment_verification',
+            permission: 'AccessLogs'
+          },
+          {
+            title: 'Discrepancy Management',
+            path: '/discrepancymanagement',
+            permission: 'AccessLogs',
+
+          },
+        ]
+      },
+      {
+        id: 'Export_bill_of_collection',
+        title: 'Export Bill of Collection',
+        icon: 'element-11',
+        asset_key: 'BBLC',
+        children: [
+          {
+            title: 'Cross Document Check',
+            path: '/cross_doc_check',
+            permission: 'AccessLogs'
+          },
+          {
+            title: 'Amendment Verification',
+            path: '/amendment_verification',
+            permission: 'AccessLogs'
+          },
+          {
+            title: 'Discrepancy Management',
+            path: '/discrepancymanagement',
+            permission: 'AccessLogs',
+
+          },
+        ]
+      },
+    ]
+  },
+  {
+    id: 'Guarantee',
+    title: 'Guarantee',
+    asset_key: 'LC_Validation',
+    icon: 'questionnaire-tablet',
+    children: [
+      {
+        id: 'Advance_payment_guarantee',
+        title: 'Advance Payment Guarantee',
+        icon: 'element-11',
+        asset_key: 'TLC',
+        children: [
+          {
+            title: 'Cross Document Check',
+            path: '/cross_doc_check',
+            permission: 'AccessLogs'
+          },
+          {
+            title: 'Amendment Verification',
+            path: '/amendment_verification',
+            permission: 'AccessLogs'
+          },
+          {
+            title: 'Discrepancy Management',
+            path: '/discrepancymanagement',
+            permission: 'AccessLogs',
+
+          },
+        ]
+      },
+      {
+        id: 'performance_guarantee',
+        title: 'Performance Guarantee',
+        icon: 'element-11',
+        asset_key: 'BBLC',
+        children: [
+          {
+            title: 'Cross Document Check',
+            path: '/cross_doc_check',
+            permission: 'AccessLogs'
+          },
+          {
+            title: 'Amendment Verification',
+            path: '/amendment_verification',
+            permission: 'AccessLogs'
+          },
+          {
+            title: 'Discrepancy Management',
+            path: '/discrepancymanagement',
+            permission: 'AccessLogs',
+
+          },
+        ]
+      },
+      {
+        id: 'Bank_guarantee',
+        title: 'Bank Guarantee',
+        icon: 'element-11',
+        asset_key: 'TLC',
+        children: [
+          {
+            title: 'Cross Document Check',
+            path: '/cross_doc_check',
+            permission: 'AccessLogs'
+          },
+          {
+            title: 'Amendment Verification',
+            path: '/amendment_verification',
+            permission: 'AccessLogs'
+          },
+          {
+            title: 'Discrepancy Management',
+            path: '/discrepancymanagement',
+            permission: 'AccessLogs',
+
+          },
+        ]
+      },
+      {
+        id: 'Retention_guarantee',
+        title: 'Retention Guarantee',
+        icon: 'element-11',
+        asset_key: 'BBLC',
+        children: [
+          {
+            title: 'Cross Document Check',
+            path: '/cross_doc_check',
+            permission: 'AccessLogs'
+          },
+          {
+            title: 'Amendment Verification',
+            path: '/amendment_verification',
+            permission: 'AccessLogs'
+          },
+          {
+            title: 'Discrepancy Management',
+            path: '/discrepancymanagement',
+            permission: 'AccessLogs',
+
+          },
+        ]
+      },
+       {
+        id: 'Shipping Guarantee',
+        title: 'Shipping Guarantee',
+        icon: 'element-11',
+        asset_key: 'BBLC',
+        children: [
+          {
+            title: 'Cross Document Check',
+            path: '/cross_doc_check',
+            permission: 'AccessLogs'
+          },
+          {
+            title: 'Amendment Verification',
+            path: '/amendment_verification',
+            permission: 'AccessLogs'
+          },
+          {
+            title: 'Discrepancy Management',
+            path: '/discrepancymanagement',
+            permission: 'AccessLogs',
+
+          },
+        ]
+      },
+    ]
+  },
+  {
+    id: 'MTManagement',
+    title: 'MT Management',
+    asset_key: 'MTConverter',
+    icon: 'abstract-44',
+    children: [
+      {
+        title: 'MTConverter',
+        path: '/MTconverter',
+        permission: 'AccessLogs'
+      },
+    ]
+  },
+  {
+    id: 'Cure_Management',
+    title: 'Cure Management',
+    asset_key: 'MTConverter',
+    icon: 'abstract-44',
+    children: [
+      {
+        title: 'MTConverter',
+        path: '/CureManagement',
+        permission: 'AccessLogs'
+      },
+    ]
+  },
+  {
+    id: 'Agent ',
+    title: 'Agent',
+    asset_key: 'MTConverter',
+    icon: 'abstract-44',
+    children: [
+      {
+        title: 'MTConverter',
+        path: '/Agant',
+        permission: 'AccessLogs'
+      },
+    ]
+  },
+  {
+    id: 'PowerBI',
+    title: 'PowerBI',
+    asset_key: 'MTConverter',
+    icon: 'abstract-44',
+    children: [
+      {
+        title: 'MTConverter',
+        path: '/powerbi',
+        permission: 'AccessLogs'
+      },
+    ]
+  },
+  {
+    id: 'Billing',
+    title: 'Billing',
+    asset_key: 'Billing',
+    icon: 'bill',
+    children: [
+      {
+        title: 'Billing',
+        path: '/Billing',
+        permission: 'AccessLogs'
+      },
+    ]
+  },
+
 ];
 
 export const MENU_MEGA: TMenuConfig = [
