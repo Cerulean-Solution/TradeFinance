@@ -17,6 +17,7 @@ import { Container } from '@/components';
 import TBML from './TBMLComponents/TBML';
 import WatchlistManualEntry from './TBMLComponents/WatchlistManualEntry';
 import ControlledGoodsEntry from './TBMLComponents/ControlledGoodsEntry';
+import { CheckConnection } from './TBMLComponents/CheckConnection';
 
 
 // import { AccountSettingsSidebar } from './AccountSettingsSidebar';
@@ -77,6 +78,11 @@ const AccountSettingsSidebarContent = () => {
       )}
 <Container> 
     <div className="flex flex-col items-stretch grow gap-5 lg:gap-7.5 " >
+
+       <div id="CheckConnection">
+                <CheckConnection />
+              </div>
+
       <div  id="TBML">
         <TBML />
       </div>

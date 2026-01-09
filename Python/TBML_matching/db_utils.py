@@ -71,7 +71,6 @@ def insert_trade_transaction(txn, user_id):
     return transaction_no
 
 
-
 def insert_transaction_items(transaction_no, items, user_id):
     conn = get_db_connection()
     cursor = conn.cursor()
@@ -89,7 +88,6 @@ def insert_transaction_items(transaction_no, items, user_id):
 
     conn.commit()
     conn.close()
-
 
 def fetch_watchlist():
     conn = get_db_connection()  # Your existing DB connection function

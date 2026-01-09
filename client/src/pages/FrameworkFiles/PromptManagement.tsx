@@ -661,7 +661,7 @@ const getChangedFields = (row: Prompt) => {
                             onClose={() => setViewVersionModal(false)}
                             title="Version Details"
                             onSubmit={() => setViewVersionModal(false)}
-                            config={{ width: "1500px", height: "1200px", bodyHeight: "1000px", bigTextareas: true }}
+                            config={{ width: "1100px", height: "1200px", bodyHeight: "1000px", bigTextareas: true }}
                             fields={[
                                 { key: "old_prompt_id", label: "Old Prompt ID", type: "text", readonly: true },
                                 { key: "module_name", label: "Module", type: "text", readonly: true },

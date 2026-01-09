@@ -93,7 +93,7 @@ const ManualEntry = () => {
               type="text"
               value={sourceInput}
               onChange={(e) => setSourceInput(e.target.value)}
-              placeholder="TN"
+              placeholder="ofac"
             />
           </div>
         </div>

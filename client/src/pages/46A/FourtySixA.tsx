@@ -12,6 +12,8 @@ import {
 import { Textarea } from '@/components/ui/textarea';
 import { useNavigate } from 'react-router-dom';
 import { Trash2 } from 'lucide-react';
+import { Toaster, toast } from 'sonner';
+
 
 type DocumentChecklist = {
   docsNeededId: number;
@@ -41,15 +43,11 @@ export default function FourtySixA() {
   const [limit, setLimit] = useState(10);
 
   const SAMPLE_DOCUMENT_TEXT = `
-46A – Additional Documents Required
-
-1. Commercial Invoice – Original + 2 Copies
-2. Packing List – Detailed
-3. Certificate of Origin
-4. Insurance Policy
-5. Bill of Lading
-Commodity: Electronics – Mobile Phones
-LC Type: Sight
+        46A Documents - Electronics - Mobile Phones
+        Commercial Invoice in 3 copies
+        Packing List in 2 copies
+        Certificate of Origin
+        Bill of Lading
 `;
 
   const loadSample = () => {
@@ -70,7 +68,12 @@ LC Type: Sight
       console.log('Fetched documents:', data); // good for debugging
       setDocuments(data);
     } catch (err) {
-      console.error('Error fetching documents:', err);
+      toast.error(
+  `Error fetching documents: ${
+    err instanceof Error ? err.message : 'Unexpected error'
+  }`
+);
+
     }
     setLoading(false);
   };
@@ -94,25 +97,25 @@ LC Type: Sight
 
       const result = await res.json();
 
-      alert(`✅ Imported: ${result.description} with ${result.detail_count} sub-documents`);
+      // alert(`✅ Imported: ${result.description} with ${result.detail_count} sub-documents`);
+      toast.success(
+  `Successfully imported "${result.description}" (${result.detail_count} sub-documents)`,
+  {
+    position: 'top-right',
+    
+  }
+);
+
       setDocumentText('');
       fetchDocuments();
     } catch (err) {
-      console.error(err);
-      alert('❌ Error analyzing document');
+      // console.error(err);
+      toast.error('Error analyzing document');
+
     } finally {
       setAnalyzing(false); // --- HIDE LOADER ---
     }
   };
-
-  // Filtered documents
-  // const filteredData = documents.filter((doc) => {
-  //     return (
-  //         (search === "" || doc.description.toLowerCase().includes(search.toLowerCase())) &&
-  //         (categoryFilter === "all" || doc.category === categoryFilter) &&
-  //         (mandatoryFilter === "all" || doc.mandatory === mandatoryFilter)
-  //     );
-  // });
   const filteredData = documents.filter((doc) => {
     const matchesSearch =
       search === '' || doc.description.toLowerCase().includes(search.toLowerCase());
@@ -146,11 +149,11 @@ LC Type: Sight
 
       if (!res.ok) throw new Error('Delete failed');
 
-      alert('🗑️ Document deleted!');
+      toast.success('🗑️ Document deleted!');
       fetchDocuments(); // refresh table
     } catch (err) {
-      console.error(err);
-      alert('❌ Error deleting document');
+      // console.error(err);
+      toast.error('❌ Error deleting document');
     }
   };
 
@@ -203,10 +206,10 @@ LC Type: Sight
       label: 'Status',
       render: (row) => (
         <span
-          className={`px-2 py-1 rounded-full text-white text-sm ${
+          className={`px-2 py-1 rounded-full  text-sm ${
             row.fullyCompliant === 'Y'
-              ? 'bg-success-light text-success-active'
-              : 'bg-danger-light text-danger-active'
+              ? 'bg-success-clarity text-success-active px-3 py-1'
+              : 'bg-danger-clarity text-danger-active px-2 py-1'
           }`}
         >
           {row.fullyCompliant === 'Y' ? 'Active' : 'Inactive'}
@@ -226,18 +229,6 @@ LC Type: Sight
         <button className="btn btn-primary btn-outline hover:bg-blue-600" onClick={fetchDocuments}>
           <RefreshCw className="h-4 w-4" /> Refresh
         </button>
-        {/* <button
-    className="btn btn-primary btn-outline hover:bg-blue-600 flex items-center gap-2"
-    onClick={fetchDocuments}
-    disabled={loading}
->
-    {loading ? (
-        <span className="loading loading-spinner loading-sm"></span>
-    ) : (
-        <RefreshCw className="h-4 w-4" />
-    )}
-    Refresh
-</button> */}
       </div>
 
       {/* AI Document Import */}
@@ -256,19 +247,12 @@ LC Type: Sight
           value={documentText}
           onChange={(e) => setDocumentText(e.target.value)}
         />
-        {/* <button
-                    className="btn btn-primary btn-outline hover:bg-blue-600 flex justify-center items-center gap-2"
-                    onClick={analyzeDocument}
-                    disabled={analyzing}
-                >
-                    {analyzing ? (
-                        <span className="loading loading-spinner loading-sm animate-spin"></span>
-                    ) : (
-                        "Analyze & Import"
-                    )}
-                </button> */}
         <div className="flex gap-3">
-          <button className="btn btn-primary btn-outline hover:bg-blue-600 flex justify-center items-center gap-2" onClick={loadSample} type="button">
+          <button
+            className="btn btn-primary btn-outline hover:bg-blue-600 flex justify-center items-center gap-2"
+            onClick={loadSample}
+            type="button"
+          >
             Load Sample
           </button>
 

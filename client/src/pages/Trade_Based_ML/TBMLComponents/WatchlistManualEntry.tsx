@@ -163,7 +163,7 @@ const WatchlistManualEntry = () => {
             </div>
 
             {/* DOB */}
-            <div className="w-full">
+            {/* <div className="w-full">
               <div className="flex items-baseline flex-wrap lg:flex-nowrap gap-2.5">
                 <label className="form-label max-w-56">Date of Birth</label>
                 <input
@@ -173,7 +173,7 @@ const WatchlistManualEntry = () => {
                   onChange={e => setDob(e.target.value)}
                 />
               </div>
-            </div>
+            </div> */}
 
             {/* SOURCE */}
             <div className="w-full">

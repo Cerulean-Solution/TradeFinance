@@ -28,7 +28,7 @@ app = FastAPI(
 )
 router = APIRouter(
     prefix="/api/lc",
-    tags=["TBML"]
+    tags=["Goods_matcher"]
 )
 # --------------------------------------------------
 # INITIALIZE COMPONENTS
