@@ -2406,3 +2406,23 @@
 [2026-01-08 17:12:40.693] [ERROR] Save Activity
     Details: Error: ('23000', "[23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Cannot insert explicit value for identity column in table 'tf_sanctions_activity' when IDENTITY_INSERT is set to OFF. (544) (SQLParamData)")
 --------------------------------------------------------------------------------
+[2026-01-09 09:14:59.159] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-09 09:14:59.189] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-09 09:22:15.087] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-09 09:22:15.095] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------

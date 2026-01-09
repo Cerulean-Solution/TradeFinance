@@ -57,11 +57,12 @@ export const MENU_SIDEBAR: TMenuConfig = [
         path: '/admin/RoleManagement',
         permission: 'AccessLogs'
       },
-      {
-        title: 'Prompt Management',
-        path: '/framework/prompt-management',
+       {
+        title: 'Billing',
+        path: '/Billing',
         permission: 'AccessLogs'
       },
+      
     ]
   },
   {
@@ -164,7 +165,7 @@ export const MENU_SIDEBAR: TMenuConfig = [
     children: [
       {
         id: 'ILC',
-        title: 'ILC',
+        title: 'Import Letter of Credit',
         icon: 'element-11',
         asset_key: 'ILC',
         children: [
@@ -180,7 +181,7 @@ export const MENU_SIDEBAR: TMenuConfig = [
           },
           {
             title: 'Discrepancy Management',
-            path: '/discrepancymanagement',
+            path: '/Form/LcForm',
             permission: 'AccessLogs',
 
           },
@@ -188,7 +189,7 @@ export const MENU_SIDEBAR: TMenuConfig = [
       },
       {
         id: 'ELC',
-        title: 'ELC',
+        title: 'Export Letter of Credit',
         icon: 'element-11',
         asset_key: 'ELC',
         children: [
@@ -214,13 +215,13 @@ export const MENU_SIDEBAR: TMenuConfig = [
   },
   {
     id: 'letter_of_Cerdit_specialize',
-    title: 'Letter of Cerdit Specialize',
+    title: 'Special Letter of Cerdit ',
     asset_key: 'LC_Validation',
     icon: 'questionnaire-tablet',
     children: [
       {
         id: 'TLC',
-        title: 'TLC',
+        title: 'Transferable Letter of Credit',
         icon: 'element-11',
         asset_key: 'TLC',
         children: [
@@ -244,7 +245,7 @@ export const MENU_SIDEBAR: TMenuConfig = [
       },
       {
         id: 'BBLC',
-        title: 'BBLC',
+        title: 'Back to Back Letter of Credit',
         icon: 'element-11',
         asset_key: 'BBLC',
         children: [
@@ -268,7 +269,7 @@ export const MENU_SIDEBAR: TMenuConfig = [
       },
       {
         id: 'RLC',
-        title: 'RLC',
+        title: 'Revolving Letter of Credit',
         icon: 'element-11',
         asset_key: 'RLC',
         children: [
@@ -292,7 +293,7 @@ export const MENU_SIDEBAR: TMenuConfig = [
       },
       {
         id: 'SBLC',
-        title: 'SBLC',
+        title: 'Standby Letter of Credit',
         icon: 'element-11',
         asset_key: 'SBLC',
         children: [
@@ -508,8 +509,13 @@ export const MENU_SIDEBAR: TMenuConfig = [
     icon: 'abstract-44',
     children: [
       {
-        title: 'MTConverter',
-        path: '/MTconverter',
+        title: 'MT Generator',
+        path: '/MTgenerator',
+        permission: 'AccessLogs'
+      },
+      {
+        title: 'MT Validator',
+        path: '/MTgenerator',
         permission: 'AccessLogs'
       },
     ]
@@ -545,23 +551,17 @@ export const MENU_SIDEBAR: TMenuConfig = [
     title: 'PowerBI',
     asset_key: 'MTConverter',
     icon: 'abstract-44',
-    children: [
-      {
-        title: 'MTConverter',
-        path: '/powerbi',
-        permission: 'AccessLogs'
-      },
-    ]
+      path: '/powerbi',
   },
   {
-    id: 'Billing',
-    title: 'Billing',
-    asset_key: 'Billing',
+    id: 'Customer Portal',
+    title: 'Customer Portal *',
+    asset_key: 'customer_portal',
     icon: 'bill',
     children: [
       {
-        title: 'Billing',
-        path: '/Billing',
+        title: 'Customer Portal',
+        path: '/customer_portal',
         permission: 'AccessLogs'
       },
     ]
