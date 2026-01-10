@@ -2316,3 +2316,51 @@
     Status: SUCCESS
     Message: Connected to tf_genie
 --------------------------------------------------------------------------------
+[2026-01-09 12:26:57.043] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-09 12:26:57.061] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-09 12:27:00.135] [ACTIVITY] Search Initiated
+    Details: hydrogen fluoride chemical compound used in industrial processing
+--------------------------------------------------------------------------------
+[2026-01-09 12:27:00.333] [SQL] Query Executed
+    Details: Query: GetExportControlItems
+    Result Count: 5046
+--------------------------------------------------------------------------------
+[2026-01-09 12:32:56.894] [MATCH_RUN] Matching Operation
+    Details: Run ID: 1
+    Input: hydrogen fluoride chemical compound used in industrial processing
+    Matches Found: 55
+--------------------------------------------------------------------------------
+[2026-01-09 12:32:56.904] [ERROR] Save Activity
+    Details: Error: ('23000', "[23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Cannot insert explicit value for identity column in table 'tf_sanctions_activity' when IDENTITY_INSERT is set to OFF. (544) (SQLParamData)")
+--------------------------------------------------------------------------------
+[2026-01-09 12:33:13.184] [SQL] Query Executed
+    Details: Query: AddTestEntry
+    Parameters: Name=	Sensors, industrial infrared
+    Result Count: 1
+--------------------------------------------------------------------------------
+[2026-01-09 12:33:13.188] [ACTIVITY] Test Entry Added
+    Details: Name: 	Sensors, industrial infrared
+--------------------------------------------------------------------------------
+[2026-01-09 12:33:18.732] [SQL] Query Executed
+    Details: Query: GetActivityByRunId
+    Parameters: id=2
+    Result Count: 1
+--------------------------------------------------------------------------------
+[2026-01-10 09:53:50.560] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------
+[2026-01-10 09:53:50.587] [CONNECTIVITY] Connection Test
+    Details: Service: SQL Server
+    Status: SUCCESS
+    Message: Connected to tf_genie
+--------------------------------------------------------------------------------

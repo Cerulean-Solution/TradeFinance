@@ -397,7 +397,7 @@ export default function GoodsMatching() {
             </div>
           </div>
           {/* 📂 RETRIEVE */}
-          <div className="card border rounded-xl p-6">
+          {/* <div className="card border rounded-xl p-6">
             <h4 className="text-lg font-semibold mb-4"> Retrieve Past Results</h4>
 
             <div className="flex gap-4">
@@ -422,7 +422,7 @@ export default function GoodsMatching() {
                 <KeenIcon icon="search" /> Retrieve
               </button>
             </div>
-          </div>
+          </div> */}
           <div className="text-center text-xs text-gray-500 pt-4">
             Goods Matching System v1.0 | Powered by Advanced Matching Techniques
           </div>

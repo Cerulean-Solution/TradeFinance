@@ -74,9 +74,9 @@ const AccountSettingsSidebarContent = () => {
       )}
 <Container> 
     <div className="flex flex-col items-stretch grow gap-5 lg:gap-7.5 " >
-        <div id="CheckConnection">
+        {/* <div id="CheckConnection">
           <CheckConnection />
-        </div>
+        </div> */}
 
         <div id="Sanction">
           <Sanction />

@@ -584,6 +584,9 @@ export default function TBMLScreening() {
   const [shippingRoute, setShippingRoute] = useState('');
   const [status, setStatus] = useState<'' | 'HIGH RISK' | 'CLEARED'>('');
   const [clearReason, setClearReason] = useState('');
+  const [shipOwner, setShipOwner] = useState('');
+  const [imeiCode, setImeiCode] = useState('');
+  const [mmsiCode, setMmsiCode] = useState('');
 
   // Items
   const [items, setItems] = useState([
@@ -604,6 +607,9 @@ export default function TBMLScreening() {
       totalValue: '45000',
       currency: 'USD',
       shippingRoute: 'Chennai → Dubai',
+      shipOwner: 'Oceanic Shipping Ltd',
+      imeiCode: '356938035643809',
+      mmsiCode: '419123456',
       items: [{ goodCode: '5208', description: 'Cotton fabric', quantity: '1000', unitPrice: '45' }]
     },
     high: {
@@ -614,6 +620,9 @@ export default function TBMLScreening() {
       totalValue: '950000',
       currency: 'USD',
       shippingRoute: 'Mersin → Bandar Abbas',
+      shipOwner: 'Caspian Marine Corp',
+      imeiCode: '867530912345678',
+      mmsiCode: '422987654',
       items: [
         {
           goodCode: '9306',
@@ -640,6 +649,11 @@ export default function TBMLScreening() {
     setTotalValue(s.totalValue);
     setCurrency(s.currency);
     setShippingRoute(s.shippingRoute);
+
+    setShipOwner(s.shipOwner);
+  setImeiCode(s.imeiCode);
+  setMmsiCode(s.mmsiCode);
+
     setItems(s.items);
     setSerial('');
     setTableData([]);
@@ -907,6 +921,22 @@ export default function TBMLScreening() {
                   onChange={(e) => setShippingRoute(e.target.value)}
                 />
               </div>
+
+              <div>
+  <MenuLabel>Ship Owner</MenuLabel>
+  <Input value={shipOwner} onChange={(e) => setShipOwner(e.target.value)} />
+</div>
+
+<div>
+  <MenuLabel>IMEI Code</MenuLabel>
+  <Input value={imeiCode} onChange={(e) => setImeiCode(e.target.value)} />
+</div>
+
+<div>
+  <MenuLabel>MMSI Code</MenuLabel>
+  <Input value={mmsiCode} onChange={(e) => setMmsiCode(e.target.value)} />
+</div>
+
             </div>
           </CardContent>
         </Card>
@@ -936,7 +966,9 @@ export default function TBMLScreening() {
                 </div>
                 <div>
                   {idx === 0 && <MenuLabel>Quantity</MenuLabel>}
-                  <Input value={item.quantity} onChange={(e) => updateItem(idx, 'quantity', e.target.value)}
+                  <Input
+                    value={item.quantity}
+                    onChange={(e) => updateItem(idx, 'quantity', e.target.value)}
                   />
                 </div>
                 <div>
@@ -946,8 +978,6 @@ export default function TBMLScreening() {
                     onChange={(e) => updateItem(idx, 'unitPrice', e.target.value)}
                   />
                 </div>
-
-                
 
                 <div className="flex items-end">
                   <Button variant="destructive" onClick={() => removeItem(idx)}>
@@ -1015,7 +1045,9 @@ export default function TBMLScreening() {
             {status === 'CLEARED' && (
               <div className="mb-4 flex items-center gap-3 border border-green-600 p-4 rounded bg-green-50">
                 <ShieldAlert className="text-green-700" />
-                <span className="font-semibold text-green-700">CLEARED — No TBML risk indicators detected.</span>
+                <span className="font-semibold text-green-700">
+                  CLEARED — No TBML risk indicators detected.
+                </span>
               </div>
             )}
 

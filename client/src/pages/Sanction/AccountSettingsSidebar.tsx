@@ -6,11 +6,11 @@ const AccountSettingsSidebar = () => {
        {
       title: 'Sanction segments',
       children: [
-        {
-          title: 'Connection',
-          target: 'CheckConnection',
-          active: true
-        },
+        // {
+        //   title: 'Connection',
+        //   target: 'CheckConnection',
+        //   active: true
+        // },
         {
           title: 'Sanction',
           target: 'Sanction',

@@ -6,11 +6,11 @@ const AccountSettingsSidebar = () => {
        {
       title: 'TBML segments',
       children: [
-        {
-          title: 'Connection',
-          target: 'CheckConnection',
-          active: true
-        },
+        // {
+        //   title: 'Connection',
+        //   target: 'CheckConnection',
+        //   active: true
+        // },
         {
           title: 'TBML',
           target: 'TBML',
